@@ -13,12 +13,27 @@ body{
     box-sizing: border-box;
 }
 
-header{
-    display: flex;
-    
-}
-
 .layout{
     display: grid;
     grid-template-columns: 14rem auto;
+    grid-template-rows: 6vh 70vh 24vh;
+}
+
+header{
+    grid-column: 1/span 2;
+}
+
+.navBarre{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+footer{
+    grid-column: 1;
+    grid-row: 3;
+}
+
+main{
+    grid-column: 2;
+    grid-row: 2/span 2;
 }
