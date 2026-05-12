@@ -36,7 +36,7 @@ header nav{
     gap: 2vw;
 }
 
-header button{
+header button, #navBarre button{
     background-color: var(--color-bg);
     fill: var(--color-text);
     border: 1px solid var(--color-bg);
@@ -63,6 +63,33 @@ header input{
 /*Sidebar------------------------------*/
 #navBarre{
     display: none;
+    padding: 0 1rem;
+    flex-direction: column;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navBarre a, #navBarre button{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-text);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.iconeNav{
+    fill: var(--color-text);
+    width: 40px;
+}
+
+#navPlus a{
+    margin: 0;
 }
 
 
