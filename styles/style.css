@@ -1,6 +1,7 @@
 :root{
     --color-bg:#1E1F24;
     --color-text:#FCFCFF;
+    --color-primary:#C2A7FC;
 
 }
 
@@ -19,28 +20,71 @@ body{
     grid-template-rows: 6vh auto;
 }
 
+/*Header----------------------------------------------------*/
 header{
     grid-row:1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 3vw;
+    border-bottom: 1px solid var(--color-primary);
 }
 
+header nav{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+header button{
+    background-color: var(--color-bg);
+    fill: var(--color-text);
+    border: 1px solid var(--color-bg);
+    border-radius: 5px;
+    transition: 0.1s ease border;
+    cursor: pointer;
+}
+
+header button:hover{
+    border: 1px solid var(--color-text);
+}
+
+header input{
+    display: none;
+    border-radius: 20px;
+    border: none;
+}
+
+#logo{
+    display: block;
+}
+
+
+/*Sidebar------------------------------*/
 #navBarre{
     display: none;
 }
 
+
+/*Footer----------------------------------*/
 footer{
     display: none;
 }
 
+/*Main-------------------------------*/
 main{
     grid-row: 2;
 }
 
-@media screen and (min-width : 768px){
+
+/*Responsive*/
+@media screen and (min-width : 576px){
     .layout{
     display: grid;
     grid-template-columns: 14rem auto;
     grid-template-rows: 6vh 70vh 24vh;
     }
+
     #navBarre{
         display: flex;
         grid-column: 1;
@@ -58,4 +102,16 @@ main{
     grid-column: 2;
     grid-row: 2/span 2;
     }
+
+    header input{
+    display: block;
+    }
+
+    header form{
+        display: flex;
+    }
+
+    #menu{
+    display: none;
+}
 }
