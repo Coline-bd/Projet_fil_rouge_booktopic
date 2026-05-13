@@ -124,13 +124,17 @@ main{
 h1{
     grid-column: 1;
     grid-row: 2;
-    /* font-size: 24px; */
+    font-size: 1.7rem;
     margin: 0rem 5vw;
 }
 
 h2,h3,h4,h5{
     font-family: "Montserrat", sans-serif;
     margin: 0;
+}
+
+h2{
+    border-bottom: #FCFCFF solid 1px;
 }
 
 /*Fil d'ariane----------------*/
@@ -184,7 +188,6 @@ h2,h3,h4,h5{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
 }
 
 
@@ -193,11 +196,9 @@ main aside{
     display: none;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
 }
 
 /*Responsive*/
-
 /*Tablette*/
 @media screen and (min-width : 640px){
     .layout{
@@ -247,6 +248,7 @@ main aside{
     h1{
         grid-column: 1/span 2;
         grid-row: 2;
+        font-size: 2rem;
     }
     main aside{
     display: flex;
