@@ -39,7 +39,7 @@ header nav{
     gap: 2vw;
 }
 
-header button, #navBarre button{
+header button, #navBarre button ,.cardCommentIcones button{
     background-color: var(--color-bg);
     fill: var(--color-text);
     border: 1px solid var(--color-bg);
@@ -118,7 +118,7 @@ main{
     grid-row: 2;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 3vh 5vh auto;
+    grid-template-rows: 3vh 6vh auto;
 }
 
 h1{
@@ -190,7 +190,44 @@ h2{
     gap: 1rem;
 }
 
+/*Card commentaire----------------*/
+.cardComment{
+    display: flex;
+    flex-direction: column;
+}
 
+.cardCommentHeader{
+    display: flex;
+    gap: 1rem;
+}
+
+.cardCommentHeader .pseudo{
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.cardCommentHeader .date{
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+.cardCommentInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cardCommentIcones{
+    display: flex;
+    
+}
+
+.iconesAction{
+    fill: var(--color-text);
+    height: 20px;
+}
 /*section aside du main------------------*/
 main aside{
     display: none;
