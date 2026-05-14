@@ -19,7 +19,7 @@
                 <input type="text" placeholder="Rechercher un livre">
                 <button type="submit">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" height="31px" viewBox="0 0 640 640"><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/></svg> -->
-                     <img src="./assets/icones/research.svg" alt="">
+                    <img src="./assets/icones/research.svg" alt="">
                 </button> 
             </form>
         </nav>
@@ -51,7 +51,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="iconeNav"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 325.3 448 312C448 298.7 437.3 288 424 288L248 288z"/></svg>
                     <span>Livres</span> 
                 </a></li>
-                <li> <button type="button" id="navPlusBtn">  
+                <li> <button type="button" class="navPlusBtn">  
                     <!-- <img class="icone" src="./assets/icones/info.svg" alt=""> -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="iconeNav"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM288 224C288 206.3 302.3 192 320 192C337.7 192 352 206.3 352 224C352 241.7 337.7 256 320 256C302.3 256 288 241.7 288 224zM280 288L328 288C341.3 288 352 298.7 352 312L352 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L280 448C266.7 448 256 437.3 256 424C256 410.7 266.7 400 280 400L304 400L304 336L280 336C266.7 336 256 325.3 256 312C256 298.7 266.7 288 280 288z"/></svg>
                     <span>Plus</span>
@@ -83,13 +83,14 @@
             <li aria-current="page"> Livres</li>
             </ol>
         </nav> -->
-        <h1>Découvrez les actualités livres</h1>
+        <h1>Découvrez les actualités</h1>
         <div class="sectionPrincipale">
             <h2>Commentaires</h2>
-            <article class="cardComment">
+            <article>
+            <div class="cardComment">
                 <div class="cardCommentHeader">
                     <div>
-                        <img src="./assets/images/photodeprofil.png" alt="photo de profil">
+                        <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
                     </div>
                     <div class="cardCommentInfo">
                             <a href="#" class="pseudo"> Pseudo</a>
@@ -100,20 +101,118 @@
                             <a href="#"> <img src="./assets/images/covuerture1.png" alt="couverture du livre" class="couvertureMiniature"></a>
                     </div> -->
                     </div>
-                <p class="nomarge"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
                 <div class="cardCommentIcones">
-                    <button type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="iconesAction" viewBox="0 0 640 640"><path d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 157.1 224.6 144 197.3 144C150.3 144 112.2 182.1 112.2 229.1C112.2 279 144.2 327.5 180.3 371.4C221.4 421.4 271.7 465.4 306.2 491.7C309.4 494.1 314.1 495.9 320.2 495.9C326.3 495.9 331 494.1 334.2 491.7C368.7 465.4 419 421.3 460.1 371.4C496.3 327.5 528.2 279 528.2 229.1C528.2 182.1 490.1 144 443.1 144zM335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1C576 297.7 533.1 358 496.9 401.9C452.8 455.5 399.6 502 363.1 529.8C350.8 539.2 335.6 543.9 320 543.9C304.4 543.9 289.2 539.2 276.9 529.8C240.4 502 187.2 455.5 143.1 402C106.9 358.1 64 297.7 64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1L320 171.8L335 151.1z"/></svg>
+                    <div>
+                        <button type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"/></svg>
                     </button> 
-                    <a href="#">35</a>
-                    <button type="button">
-                        <img class="iconesAction" src="./assets/icones/comment.svg" alt="commenter" > <span>9</span>
+                    <button type="button">35</button>
+                    </div>
+                    <div>
+                        <button type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z"/></svg> 
                     </button> 
+                    <span>9</span>
+                    </div>
+                    <button type="button">Répondre</button>
                 </div>
+            </div>
+            <div class="responses">
+                <div class="cardComment">
+                    <div class="cardCommentHeader">
+                        <div>
+                            <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
+                        </div>
+                        <div class="cardCommentInfo">
+                                <a href="#" class="pseudo"> Pseudo</a>
+                                <span class="date"> 2 heures </span>
+                        </div>
+                        </div>
+                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                    <div class="cardCommentIcones">
+                        <div>
+                            <button type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"/></svg>
+                        </button> 
+                        <button type="button">4</button>
+                        </div>
+                        <button type="button">Répondre</button>
+                    </div>
+                </div>
+                <div class="cardComment">
+                    <div class="cardCommentHeader">
+                        <div>
+                            <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
+                        </div>
+                        <div class="cardCommentInfo">
+                                <a href="#" class="pseudo"> Pseudo</a>
+                                <span class="date"> 2 heures </span>
+                        </div>
+                        </div>
+                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                    <div class="cardCommentIcones">
+                        <div>
+                            <button type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"/></svg>
+                        </button> 
+                        <button type="button">4</button>
+                        </div>
+                        <button type="button">Répondre</button>
+                    </div>
+                </div>
+            </div>
+            <form action="#" method="post">
+                <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required> </textarea>
+                <button type="submit">
+                    Répondre
+                </button> 
+            </form>
+            </article>
+            <article>
+            <div class="cardComment">
+                <div class="cardCommentHeader">
+                    <div>
+                        <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
+                    </div>
+                    <div class="cardCommentInfo">
+                            <a href="#" class="pseudo"> Pseudo</a>
+                            <span class="date"> 2 heures </span>
+                            <!-- <a href="#"> L'espace d'un an</a> -->
+                    </div>
+                    <!-- <div >
+                            <a href="#"> <img src="./assets/images/covuerture1.png" alt="couverture du livre" class="couvertureMiniature"></a>
+                    </div> -->
+                    </div>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                <div class="cardCommentIcones">
+                    <div>
+                        <button type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"/></svg>
+                    </button> 
+                    <button type="button">35</button>
+                    </div>
+                    <div>
+                        <button type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction"><path d="M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z"/></svg> 
+                    </button> 
+                    <span>9</span>
+                    </div>
+                    <button type="button">Répondre</button>
+                </div>
+            </div>
+            <form action="#" method="post">
+                <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required> </textarea>
+                <button type="submit">
+                    Répondre
+                </button> 
+            </form>
             </article>
         </div>
+        
         <aside>
             <h2>Livres</h2>
+
         </aside>
     </main>
     </div>
