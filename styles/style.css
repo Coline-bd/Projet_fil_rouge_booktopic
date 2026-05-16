@@ -236,6 +236,29 @@ h2{
     gap: 1rem;
 }
 
+.navSecond ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.navSecond ul a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    gap: 0.5rem;
+}
+
+.gridBooks{
+    display: grid;
+    grid-template-columns: repeat(2,1fr); 
+    gap: 0.5rem;
+}
 /*Card commentaire----------------*/
 .cardComment{
     display: flex;
@@ -349,10 +372,16 @@ main aside{
     line-height: 1.5rem;
     margin: 1rem auto;
     width: 10rem;
+
 }
 
-.cardBook img{
-    width: 10rem;
+/* .coverBookMini img{
+    display: flex;
+    flex-basis: 10rem;
+} */
+.cardBook a img{
+    /* min-width: 8rem; */
+    width: 100%;
 }
 
 .cardBook span{
@@ -421,11 +450,21 @@ main aside{
         display: flex;
         gap: 0.5rem;
     }
-
+    .gridBooks{
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.5rem;
+}
     #menu{
     display: none;
 }
 }
+
+/* @media screen and (min-width : 768px){
+    .gridBooks{
+    grid-template-columns: repeat(2,1fr);
+    gap: 0.5rem;
+    }
+} */
 
 /*Laptop*/
 @media screen and (min-width: 1024px){
@@ -448,4 +487,8 @@ main aside{
     flex-direction: column;
     gap: 2rem;
     }
+    .gridBooks{
+    grid-template-columns: repeat(4,1fr);
+    /* gap: 1rem; */
+}
 }
