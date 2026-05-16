@@ -32,15 +32,12 @@ header{
     align-items: center;
     padding: 1vh 3vw;
     border-bottom: 1px solid var(--color-primary);
-<<<<<<< Updated upstream
-=======
     position: sticky;
     top: 0vh;
     /* width: 100%; */
     /* height: 3rem; */
     /* box-sizing: border-box; */
     background-color: var(--color-bg);
->>>>>>> Stashed changes
 }
 
 header nav{
@@ -49,15 +46,11 @@ header nav{
     gap: 2vw;
 }
 
-<<<<<<< Updated upstream
-header button, #navBarre button{
-=======
 .iconeActionHeader{
     height: 1.5rem;
 }
 
 header button, #navBarre button ,.cardCommentIcones button{
->>>>>>> Stashed changes
     background-color: var(--color-bg);
     fill: var(--color-text);
     border: 1px solid var(--color-bg);
@@ -73,17 +66,12 @@ header button:hover, #navBarre a:hover, #navBarre button:hover{
 
 header input{
     display: none;
-<<<<<<< Updated upstream
-    border-radius: 20px;
-    border: none;
-=======
     border-radius: 1rem;
     border: solid 1px var(--color-text);
     background-color: var(--color-bg);
 }
 input::placeholder{
     color: var(--color-text);
->>>>>>> Stashed changes
 }
 
 #logo{
@@ -123,12 +111,9 @@ nav ul{
     width: 2rem;
 }
 
-<<<<<<< Updated upstream
-=======
 #navPlus{
     display: none;
 }
->>>>>>> Stashed changes
 #navPlus a{
     margin: 0;
 }
@@ -161,11 +146,7 @@ h1{
     grid-column: 1;
     grid-row: 2;
     font-size: 1.7rem;
-<<<<<<< Updated upstream
-    margin: 0rem 5vw;
-=======
     margin: 1rem 5vw;
->>>>>>> Stashed changes
 }
 
 h2,h3{
@@ -231,8 +212,6 @@ h2{
     gap: 1rem;
 }
 
-<<<<<<< Updated upstream
-=======
 /*Card commentaire----------------*/
 .cardComment{
     display: flex;
@@ -332,15 +311,11 @@ textarea::placeholder{
     color: var(--color-text);
 }
 
->>>>>>> Stashed changes
 
 /*section aside du main------------------*/
 main aside{
     display: none;
     flex-direction: column;
-<<<<<<< Updated upstream
-    gap: 1rem;
-=======
     gap: 2rem;
 }
 
@@ -381,7 +356,6 @@ main aside{
 
 .titleCardBook:hover{
     text-decoration: underline;
->>>>>>> Stashed changes
 }
 
 /*Responsive*/
@@ -428,11 +402,7 @@ main aside{
 @media screen and (min-width: 1024px){
     main{
         display: grid;
-<<<<<<< Updated upstream
-        grid-template-columns: auto minmax(15rem,16vw);
-=======
         grid-template-columns: auto 14rem;
->>>>>>> Stashed changes
     }
     h1{
         grid-column: 1/span 2;
