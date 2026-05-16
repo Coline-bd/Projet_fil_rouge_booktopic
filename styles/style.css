@@ -12,15 +12,16 @@ body{
     color: var(--color-text);
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 100dvh;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    font-size: 1rem;
 }
 
 .layout{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 6vh auto;
+    grid-template-rows: 3rem auto;
 }
 
 /*Header----------------------------------------------------*/
@@ -31,6 +32,15 @@ header{
     align-items: center;
     padding: 1vh 3vw;
     border-bottom: 1px solid var(--color-primary);
+<<<<<<< Updated upstream
+=======
+    position: sticky;
+    top: 0vh;
+    /* width: 100%; */
+    /* height: 3rem; */
+    /* box-sizing: border-box; */
+    background-color: var(--color-bg);
+>>>>>>> Stashed changes
 }
 
 header nav{
@@ -39,7 +49,15 @@ header nav{
     gap: 2vw;
 }
 
+<<<<<<< Updated upstream
 header button, #navBarre button{
+=======
+.iconeActionHeader{
+    height: 1.5rem;
+}
+
+header button, #navBarre button ,.cardCommentIcones button{
+>>>>>>> Stashed changes
     background-color: var(--color-bg);
     fill: var(--color-text);
     border: 1px solid var(--color-bg);
@@ -55,8 +73,17 @@ header button:hover, #navBarre a:hover, #navBarre button:hover{
 
 header input{
     display: none;
+<<<<<<< Updated upstream
     border-radius: 20px;
     border: none;
+=======
+    border-radius: 1rem;
+    border: solid 1px var(--color-text);
+    background-color: var(--color-bg);
+}
+input::placeholder{
+    color: var(--color-text);
+>>>>>>> Stashed changes
 }
 
 #logo{
@@ -69,7 +96,9 @@ header input{
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 6vh;
+    top: 3rem;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 
 nav ul{
@@ -86,13 +115,20 @@ nav ul{
     color: var(--color-text);
     padding: 1rem;
     margin: 1rem 0;
+    font-size: 1.2rem;
 }
 
 .iconeNav{
     fill: var(--color-text);
-    width: 40px;
+    width: 2rem;
 }
 
+<<<<<<< Updated upstream
+=======
+#navPlus{
+    display: none;
+}
+>>>>>>> Stashed changes
 #navPlus a{
     margin: 0;
 }
@@ -125,16 +161,21 @@ h1{
     grid-column: 1;
     grid-row: 2;
     font-size: 1.7rem;
+<<<<<<< Updated upstream
     margin: 0rem 5vw;
+=======
+    margin: 1rem 5vw;
+>>>>>>> Stashed changes
 }
 
-h2,h3,h4,h5{
+h2,h3{
     font-family: "Montserrat", sans-serif;
     margin: 0;
 }
 
 h2{
     border-bottom: #FCFCFF solid 1px;
+    font-size: 1.2rem;
 }
 
 /*Fil d'ariane----------------*/
@@ -184,18 +225,163 @@ h2{
 .sectionPrincipale{
     grid-column: 1;
     grid-row: 3;
-    margin: 0rem 5vw;
+    margin: 0 5vw;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
+<<<<<<< Updated upstream
+=======
+/*Card commentaire----------------*/
+.cardComment{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px var(--color-text-secondary);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.sectionPrincipale form button{
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.profileFoto{
+    height: 4rem;
+}
+
+.responses{/*réponses à un commentaire*/
+    margin-left: 4vw;
+    padding-left: 4vw;
+    border-left: 1px solid var(--color-text-secondary);
+    /* display: none; */
+}
+
+    
+.cardCommentHeader {
+    display: flex;
+    gap: 1rem;
+}
+
+.pseudo{
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.pseudo:hover{
+    text-decoration: underline;
+}
+
+.cardCommentHeader .date{
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+.cardCommentInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.cardCommentIcones{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cardCommentIcones div{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.cardCommentIcones button, .cardCommentIcones span{
+    color: var(--color-text);
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
+
+.iconeAction{
+    height: 1.5rem;
+}
+
+article form{
+    margin: 0.5rem 0;
+    display: flex;
+    height: 2rem;
+    gap: 1rem;
+}
+article form textarea{
+    flex-grow: 1;
+    border-radius: 1rem;
+    border: solid 1px var(--color-text);
+    background-color: var(--color-bg);
+    resize: none;
+    display: flex;
+    color: var(--color-text);
+}
+
+textarea::placeholder{
+    color: var(--color-text);
+}
+
+>>>>>>> Stashed changes
 
 /*section aside du main------------------*/
 main aside{
     display: none;
     flex-direction: column;
+<<<<<<< Updated upstream
     gap: 1rem;
+=======
+    gap: 2rem;
+}
+
+.cardBook{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+    margin: 1rem auto;
+    width: 10rem;
+}
+
+.cardBook img{
+    width: 10rem;
+}
+
+.cardBook span{
+    color: var(--color-text-secondary);
+}
+
+.cardBook button{
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+    border: none;
+    padding: 0 1vw;
+    font-size: 1rem;
+    font-weight: 500;
+    align-self: center;
+    color: var(--color-bg);
+    cursor: pointer;
+}
+
+.titleCardBook{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.titleCardBook:hover{
+    text-decoration: underline;
+>>>>>>> Stashed changes
 }
 
 /*Responsive*/
@@ -204,25 +390,24 @@ main aside{
     .layout{
     display: grid;
     grid-template-columns: 14rem auto;
-    grid-template-rows: 6vh 70vh 24vh;
+    grid-template-rows: 3rem auto;
     }
-
     #navBarre{
         display: flex;
-        grid-column: 1;
-        grid-row: 2;
+        /* grid-column: 1;
+        grid-row: 2; */
     }
     footer{
         display: flex;
-        grid-column: 1;
-        grid-row: 3;
+        /* grid-column: 1;
+        grid-row: 3; */
     }
     header{
     grid-column: 1/span 2;
     }
     main{
     grid-column: 2;
-    grid-row: 2/span 2;
+    grid-row: 2;
     }
     
     header input{
@@ -243,12 +428,19 @@ main aside{
 @media screen and (min-width: 1024px){
     main{
         display: grid;
+<<<<<<< Updated upstream
         grid-template-columns: auto minmax(15rem,16vw);
+=======
+        grid-template-columns: auto 14rem;
+>>>>>>> Stashed changes
     }
     h1{
         grid-column: 1/span 2;
         grid-row: 2;
         font-size: 2rem;
+    }
+    h2{
+        font-size: 1.5rem;
     }
     main aside{
     display: flex;
