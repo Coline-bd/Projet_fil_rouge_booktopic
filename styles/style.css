@@ -90,12 +90,20 @@ input::placeholder{
 
 /*Sidebar------------------------------*/
 #navBarre{
-    display: none;
-    flex-direction: column;
     position: fixed;
     top: 3rem;
-    max-height: 50vh;
-    overflow-y: auto;
+    bottom: 30vh;
+    width: 14rem;
+    /* max-height: 65vh;
+    overflow-y: auto; */
+    transform: translateX(-100%);
+    transition: transform .1s ease;
+    background-color: var(--color-bg)
+    /* z-index: 1; */
+}
+
+#navBarre.open {
+    transform: translateX(0);
 }
 
 nav ul{
@@ -109,9 +117,10 @@ nav ul{
     display: flex;
     align-items: center;
     gap: 1rem;
+    /* width: 100%; */
     color: var(--color-text);
     padding: 1rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     font-size: 1.2rem;
 }
 
@@ -120,31 +129,33 @@ nav ul{
     width: 2rem;
 }
 
-#navPlus{
-    display: none;
-}
-#navPlus a{
-    margin: 0;
-}
-
-.navPlusBtn{
-    width: 100%;
-}
-
-
-
 /*Footer----------------------------------*/
 footer{
-    display: none;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     padding-left: 1rem;
+    /* width: 100%; */
     position: fixed;
+    top: 70vh;
     bottom: 0vh;
+    transform: translateX(-100%);
+    transition: transform .1s ease;
+    background-color: var(--color-bg);
+    box-sizing: border-box;
+    width: 14rem;
 }
 
+footer ul li{
+    padding: 0.2rem 0;
+}
 footer a{
     color: var(--color-text);
-    padding: 0.5rem 0;
+    
+}
+
+footer.open {
+    transform: translateX(0);
 }
 
 /*Main-------------------------------*/
@@ -380,12 +391,17 @@ main aside{
     grid-template-rows: 3rem auto;
     }
     #navBarre{
-        display: flex;
+        transform: translateX(0);
         /* grid-column: 1;
         grid-row: 2; */
     }
+    #navBarre ul{
+        /* gap: 1rem; */
+    }
+
     footer{
-        display: flex;
+        
+        transform: translateX(0);
         /* grid-column: 1;
         grid-row: 3; */
     }
