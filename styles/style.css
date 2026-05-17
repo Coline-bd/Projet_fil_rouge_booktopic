@@ -348,9 +348,12 @@ h2{
 .cardInfo{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 0.5rem;
 }
 
+.cardInfo h1{
+    margin: 0;
+}
 
 .cardCommentIcones{
     display: flex;
@@ -427,7 +430,7 @@ main aside{
     background-color: var(--color-primary);
     border-radius: 1rem;
     border: none;
-    padding: 0 1vw;
+    height: 1.5rem;
     font-size: 1rem;
     font-weight: 500;
     align-self: center;
