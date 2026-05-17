@@ -112,7 +112,7 @@ nav ul{
     margin: 0;
 }
 
-#navBarre a, #navBarre button{
+#navBarre a{
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -123,6 +123,7 @@ nav ul{
     margin: 0.5rem 0;
     font-size: 1.2rem;
 }
+
 
 .iconeNav{
     fill: var(--color-text);
@@ -242,6 +243,11 @@ h2{
     justify-content: space-around;
 }
 
+/* .navSecond li:nth-of-type(1){
+    border-bottom: 2px solid var(--color-primary);
+} */
+
+
 .navSecond ul a{
     display: flex;
     flex-direction: column;
@@ -254,11 +260,16 @@ h2{
     gap: 0.5rem;
 }
 
+.navSecond a:hover{
+    background-color: var(--color-bg-secondary);
+}
+
 .gridBooks{
     display: grid;
     grid-template-columns: repeat(2,1fr); 
     gap: 0.5rem;
 }
+
 /*Card commentaire----------------*/
 .cardComment{
     display: flex;
@@ -371,7 +382,7 @@ main aside{
     flex-direction: column;
     line-height: 1.5rem;
     margin: 1rem auto;
-    width: 10rem;
+    /* width: 10rem; */
 
 }
 
