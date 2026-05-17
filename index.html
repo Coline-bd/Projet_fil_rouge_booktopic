@@ -45,9 +45,9 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="iconeNav"><path d="M341.8 72.6C329.5 61.2 310.5 61.2 298.3 72.6L74.3 280.6C64.7 289.6 61.5 303.5 66.3 315.7C71.1 327.9 82.8 336 96 336L112 336L112 512C112 547.3 140.7 576 176 576L464 576C499.3 576 528 547.3 528 512L528 336L544 336C557.2 336 569 327.9 573.8 315.7C578.6 303.5 575.4 289.5 565.8 280.6L341.8 72.6zM304 384L336 384C362.5 384 384 405.5 384 432L384 528L256 528L256 432C256 405.5 277.5 384 304 384z"/></svg>
                     <span>Accueil</span>
                 </a></li>
-                <li> <a href="#">
+                <li> <a href="./pages/profile.html">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeNav"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
-                    <span>Profil</span> 
+                    <span>Mon profil</span> 
                     </a></li>
                 <li> <a href="./pages/Library.html"> 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="iconeNav"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 325.3 448 312C448 298.7 437.3 288 424 288L248 288z"/></svg>
@@ -71,11 +71,11 @@
             <h2>Commentaires</h2>
             <article>
             <div class="cardComment">
-                <div class="cardCommentHeader">
+                <div class="cardHeader">
                     <div>
                         <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
                     </div>
-                    <div class="cardCommentInfo">
+                    <div class="cardInfo">
                             <a href="#" class="pseudo"> Pseudo</a>
                             <span class="date"> 2 heures </span>
                             <!-- <a href="#"> L'espace d'un an</a> -->
@@ -103,11 +103,11 @@
             </div>
             <div class="responses">
                 <div class="cardComment">
-                    <div class="cardCommentHeader">
+                    <div class="cardHeader">
                         <div>
                             <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
                         </div>
-                        <div class="cardCommentInfo">
+                        <div class="cardInfo">
                                 <a href="#" class="pseudo"> Pseudo</a>
                                 <span class="date"> 2 heures </span>
                         </div>
@@ -124,11 +124,11 @@
                     </div>
                 </div>
                 <div class="cardComment">
-                    <div class="cardCommentHeader">
+                    <div class="cardHeader">
                         <div>
                             <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
                         </div>
-                        <div class="cardCommentInfo">
+                        <div class="cardInfo">
                                 <a href="#" class="pseudo"> Pseudo</a>
                                 <span class="date"> 2 heures </span>
                         </div>
@@ -154,11 +154,11 @@
             </article>
             <article>
             <div class="cardComment">
-                <div class="cardCommentHeader">
+                <div class="cardHeader">
                     <div>
                         <img class="profileFoto" src="./assets/images/photodeprofil.png" alt="photo de profil">
                     </div>
-                    <div class="cardCommentInfo">
+                    <div class="cardInfo">
                             <a href="#" class="pseudo"> Pseudo</a>
                             <span class="date"> 2 heures </span>
                             <!-- <a href="#"> L'espace d'un an</a> -->
@@ -199,7 +199,7 @@
                     <!-- <span>9 commentaires</span> -->
                     <a href="#" class="titleCardBook"> L'espace d'un an</a>
                     <span>science-fiction</span>
-                    <button type="button"> Ajouter
+                    <button class="addBtn" type="button"> Ajouter
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction" ><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> -->
                     </button>
             </article>
@@ -208,7 +208,7 @@
                     <!-- <span>9 commentaires</span> -->
                     <a href="#" class="titleCardBook"> L'espace d'un an</a>
                     <span>science-fiction</span>
-                    <button type="button"> Ajouter
+                    <button class="addBtn" type="button"> Ajouter
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction" ><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> -->
                     </button>
             </article>
@@ -217,7 +217,7 @@
                     <!-- <span>9 commentaires</span> -->
                     <a href="#" class="titleCardBook"> L'espace d'un an</a>
                     <span>science-fiction</span>
-                    <button type="button"> Ajouter
+                    <button class="addBtn" type="button"> Ajouter
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconeAction" ><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> -->
                     </button>
             </article>
