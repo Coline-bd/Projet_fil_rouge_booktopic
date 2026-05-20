@@ -1,10 +1,18 @@
 :root{
+    --color-bg:#FCFCFF;
+    --color-text:#1E1F24;
+    --color-primary:#6D2ABF;
+    --color-bg-secondary:#E4E4E4;
+    --color-text-secondary:#545454;
+
+}
+
+.darkTheme{
     --color-bg:#1E1F24;
     --color-text:#FCFCFF;
     --color-primary:#C2A7FC;
     --color-bg-secondary:#545454;
     --color-text-secondary:#E4E4E4;
-
 }
 
 body{
@@ -28,6 +36,10 @@ button, textarea, input{
     font-family: "roboto", sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: var(--color-text);
+}
 
 /*Header----------------------------------------------------*/
 header{
@@ -51,6 +63,24 @@ header nav{
 
 .iconeActionHeader{
     height: 1.5rem;
+}
+
+#navAccount{
+    background-color: var(--color-bg);
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    /* transition: max-height 2s ease; */
+    }
+
+#navAccount.open{
+    max-height: fit-content;
+}
+
+#navAccount li{
+    padding: 0.5rem 1rem;
 }
 
 /* header button, #navBarre button ,.cardCommentIcones button{ */
