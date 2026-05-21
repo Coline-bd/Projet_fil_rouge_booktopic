@@ -1,3 +1,5 @@
+
+//Menu burger
 const burgerBtn =
   document.getElementById("menu");
 
@@ -15,22 +17,48 @@ burgerBtn.addEventListener("click", () => {
 });
 
 
+
 //Dark Mode
 const body=document.querySelector('body');
 const themeBtn=document.querySelector('#themeBtn');
 console.log(body);
 
+// themeBtn.addEventListener('click',()=>{
+//   body.classList.toggle("darkTheme");
+//   themeBtn.innerText="light";
+// })
+
 themeBtn.addEventListener('click',()=>{
-  body.classList.toggle("darkTheme");
-  themeBtn.innerText="light";
+  if (body.classList.contains('darkTheme')){
+    body.classList.add("lightTheme");
+    body.classList.remove("darkTheme");
+    themeBtn.innerText="mode dark";
+  }
+  else{
+    body.classList.add("darkTheme");
+    body.classList.remove("lightTheme");
+    themeBtn.innerText="mode light";
+  }
+  
 })
 
-//onglet paramètres de compte
+//ouvrir onglet paramètres de compte
 
 const navAccountBtn=document.querySelector('#navAccountBtn');
+const navAccountMenu=document.querySelector('#navAccountMenu');
 const navAccount=document.querySelector('#navAccount');
 
 navAccountBtn.addEventListener('click',()=>{
-  navAccount.classList.toggle("open");
+  navAccountMenu.classList.toggle("open");
 }
 )
+
+// fermer l'onglet quand on clique à l'extérieur
+document.addEventListener("click", (event) => {
+
+  if(!navAccount.contains(event.target)) {
+
+    navAccountMenu.classList.remove("open");
+  }
+
+});
