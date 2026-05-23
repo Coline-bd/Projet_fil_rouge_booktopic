@@ -17,16 +17,11 @@ burgerBtn.addEventListener("click", () => {
 });
 
 
-
-//Dark Mode
+// Dark Mode
 const body=document.querySelector('body');
 const themeBtn=document.querySelector('#themeBtn');
 console.log(body);
 
-// themeBtn.addEventListener('click',()=>{
-//   body.classList.toggle("darkTheme");
-//   themeBtn.innerText="light";
-// })
 
 themeBtn.addEventListener('click',()=>{
   if (body.classList.contains('darkTheme')){
@@ -42,7 +37,7 @@ themeBtn.addEventListener('click',()=>{
   
 })
 
-//ouvrir onglet paramètres de compte
+// ouvrir onglet paramètres de compte
 
 const navAccountBtn=document.querySelector('#navAccountBtn');
 const navAccountMenu=document.querySelector('#navAccountMenu');
@@ -62,3 +57,19 @@ document.addEventListener("click", (event) => {
   }
 
 });
+
+const bookId ="5ZuhDAAAQBAJ"; 
+
+const title =
+  document.querySelector("#bookTitle");
+
+const author =
+  document.querySelector("#bookAuthor");
+
+const description =
+  document.querySelector("#bookDescription");
+
+const cover =
+  document.querySelector("#bookCover");
+
+

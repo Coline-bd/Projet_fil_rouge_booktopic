@@ -115,9 +115,7 @@ button{
     height: 100%;
 }
 
-#themeBtn{
 
-}
 .editBtn{
     color: var(--color-text);
     border: var(--color-text) 1px solid;
