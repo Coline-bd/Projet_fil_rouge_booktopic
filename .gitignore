@@ -1,0 +1,8 @@
+#API key
+.env
+
+#VS code
+.vscode
+
+
+node_modules/
