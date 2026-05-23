@@ -1,7 +1,10 @@
+const apiKey=import.meta.env.VITE_API_KEY
+console.log(apiKey);
+
 function getBook() {
     // 1. On donne le chemin RELATIF vers le fichier JSON
     // Le chemin dans le fetch() est relatif au fichier HTML, PAS au fichier JS.
-    const url =`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${API_KEY}`;
+    const url =`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${apiKey}`;
     console.log("fetch lancé");
 
     fetch(url)
