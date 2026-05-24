@@ -58,18 +58,6 @@ document.addEventListener("click", (event) => {
 
 });
 
-const bookId ="5ZuhDAAAQBAJ"; 
 
-const title =
-  document.querySelector("#bookTitle");
-
-const author =
-  document.querySelector("#bookAuthor");
-
-const description =
-  document.querySelector("#bookDescription");
-
-const cover =
-  document.querySelector("#bookCover");
 
 

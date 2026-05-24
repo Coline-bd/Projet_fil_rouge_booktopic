@@ -412,9 +412,10 @@ h2{
     gap: 0.5rem;
 }
 
-.cardInfo h1{
-    margin: 0;
+.cardInfo h1,p{
+    margin: 0.5rem 0;
 }
+
 
 .cardCommentIcones{
     display: flex;
@@ -470,7 +471,7 @@ main aside{
     flex-direction: column;
     line-height: 1.5rem;
     margin: 1rem auto;
-    /* width: 10rem; */
+    width: 10rem;
 
 }
 
