@@ -856,8 +856,7 @@ async function searchBook() {
         cardBook.innerHTML=`
             <a href="/src/pages/book.html?id=${dataTest[i].id}"> <img src="${dataTest[i].volumeInfo.imageLinks?.thumbnail}" alt="${dataTest[i].volumeInfo.title}"></a>
             <a href="/src/pages/book.html?id=${dataTest[i].id}" class="titleCardBook"> ${dataTest[i].volumeInfo.title}</a>
-            <span>${dataTest[i].categories?.join(",")}</span>
-            <span>${dataTest[i].volumeInfo.authors?.join(", ")}</span>
+            <span>${dataTest[i].volumeInfo.authors?.join(",")}</span>
             <span>${dataTest[i].volumeInfo.categories?.join(",")}</span>
             <button class="addBtn" type="button"> Ajouter</button>
         `

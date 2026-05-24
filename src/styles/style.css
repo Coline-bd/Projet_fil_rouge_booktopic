@@ -8,13 +8,13 @@
 
 /*Afficher le dark mode en fonction des paramètres du navigateur*/
 @media (prefers-color-scheme: dark) {
-  :root {
+:root {
     --color-bg:#1E1F24;
     --color-text:#FCFCFF;
     --color-primary:#C2A7FC;
     --color-bg-secondary:#545454;
     --color-text-secondary:#E4E4E4;
-  }}
+}}
 
 .lightTheme{
     --color-bg:#FCFCFF;
@@ -43,8 +43,8 @@ body{
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
-    transition: background-color .3s ease; /*Transition passage au dark/light mode*/
-    transition: color .3s ease;
+    /* transition: background-color .3s ease; Transition passage au dark/light mode */
+    /* transition: color .3s ease; */
     
 }
 

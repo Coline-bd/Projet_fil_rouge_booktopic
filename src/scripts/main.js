@@ -17,22 +17,30 @@ burgerBtn.addEventListener("click", () => {
 });
 
 
-// Dark Mode
+// Theme Mode dark ou light
 const body=document.querySelector('body');
 const themeBtn=document.querySelector('#themeBtn');
-console.log(body);
 
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme){
+  body.classList.add(savedTheme);
+}
 
 themeBtn.addEventListener('click',()=>{
-  if (body.classList.contains('darkTheme')){
+  if (body.classList.contains('darkTheme')){ 
     body.classList.add("lightTheme");
     body.classList.remove("darkTheme");
     themeBtn.innerText="mode dark";
+    localStorage.removeItem("theme");
+    localStorage.setItem("theme","lightTheme");
   }
   else{
     body.classList.add("darkTheme");
     body.classList.remove("lightTheme");
     themeBtn.innerText="mode light";
+    localStorage.removeItem("theme");
+    localStorage.setItem("theme","darkTheme");
   }
   
 })
@@ -48,7 +56,7 @@ navAccountBtn.addEventListener('click',()=>{
 }
 )
 
-// fermer l'onglet quand on clique à l'extérieur
+// fermer l'onglet paramètres quand on clique à l'extérieur
 document.addEventListener("click", (event) => {
 
   if(!navAccount.contains(event.target)) {
