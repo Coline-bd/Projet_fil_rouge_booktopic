@@ -50,28 +50,21 @@ const params = new URLSearchParams(window.location.search);
 const bookId =params.get("id");
 
 //Page livre
-const title =
-  document.querySelector("#bookTitle");
+const title = document.querySelector("#bookTitle");
 
-const subtitle= document.querySelector("#subtitle");
+const subtitle = document.querySelector("#subtitle");
 
-const author =
-  document.querySelector("#bookAuthor");
+const author = document.querySelector("#bookAuthor");
 
-const description =
-  document.querySelector("#bookDescription");
+const description = document.querySelector("#bookDescription");
 
-const cover =
-  document.querySelector("#bookCover");
+const cover = document.querySelector("#bookCover");
 
-const datePublication =
-  document.querySelector("#bookPublication");
+const datePublication = document.querySelector("#bookPublication");
 
-  const bookEdition =
-  document.querySelector("#bookEdition");
+const bookEdition = document.querySelector("#bookEdition");
 
-  const category =
-  document.querySelector("#bookCategory");
+const category =document.querySelector("#bookCategory");
 
 // const bookId ="5ZuhDAAAQBAJ"; 
 

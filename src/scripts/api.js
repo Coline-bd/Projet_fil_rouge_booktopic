@@ -1,4 +1,4 @@
-const apiKey=import.meta.env.VITE_API_KEY
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const dataTest =[
     {
@@ -805,10 +805,9 @@ const dataTest =[
             "textSnippet": "READERS LOVE BECKY CHAMBERS &#39;An emotional read&#39; ⭐⭐⭐⭐⭐ &#39;Wonderful, humane SF&#39; ⭐⭐⭐⭐⭐ &#39;It&#39;s a gentle and sweet read&#39; ⭐⭐⭐⭐⭐ &#39;Chambers is truly a master of Character Driven fiction&#39; ⭐⭐⭐⭐⭐ &#39;This world she ..."
         }
     }
-]
+];
 
 const aside = document.querySelector('aside');
-
 
 async function searchBook() {
     // 1. On donne le chemin RELATIF vers le fichier JSON
@@ -826,10 +825,9 @@ async function searchBook() {
     //       console.log("Données locales reçues :", data);
     //       const dataBooks = data.items;
     //       console.log(dataBooks);
-          
-          for (let i=0;i<dataTest.length;i++){
-            const cardBook = document.createElement('article');
-            cardBook.classList.add('cardBook');
+    for (let i=0;i<dataTest.length;i++){
+        const cardBook = document.createElement('article');
+        cardBook.classList.add('cardBook');
           //   const linkCoverCard=document.createElement('a');
           //   const coverCard=document.createElement('img');
           //   coverCard.src = dataTest[i].volumeInfo.imageLinks?.thumbnail;
@@ -854,14 +852,14 @@ async function searchBook() {
           // aside.append(cardBook);
 
         cardBook.innerHTML=`
-            <a href="/src/pages/book.html?id=${dataTest[i].id}"> <img src="${dataTest[i].volumeInfo.imageLinks?.thumbnail}" alt="${dataTest[i].volumeInfo.title}"></a>
-            <a href="/src/pages/book.html?id=${dataTest[i].id}" class="titleCardBook"> ${dataTest[i].volumeInfo.title}</a>
+            <a href="./src/pages/book.html?id=${dataTest[i].id}"> <img src="${dataTest[i].volumeInfo.imageLinks?.thumbnail}" alt="${dataTest[i].volumeInfo.title}"></a>
+            <a href="./src/pages/book.html?id=${dataTest[i].id}" class="titleCardBook"> ${dataTest[i].volumeInfo.title}</a>
             <span>${dataTest[i].volumeInfo.authors?.join(",")}</span>
             <span>${dataTest[i].volumeInfo.categories?.join(",")}</span>
             <button class="addBtn" type="button"> Ajouter</button>
         `
             aside.append(cardBook);
-          }
+    }
         
         //   })
         // .catch(error) {
