@@ -93,7 +93,7 @@ async function getBook(bookId) {
         author.textContent = info.authors?.join(", ");
         category.textContent=info.categories?.join(",");
         description.innerHTML=info.description || "Description indisponible";
-        cover.src = info.imageLinks?.thumbnail;
+        cover.src = info.imageLinks? info.imageLinks.thumbnail:"/public/images/imgDefault.png";
         cover.alt = info.title;
         datePublication.textContent=info.publishedDate;
         bookEdition.textContent=info.publisher;
@@ -104,4 +104,4 @@ async function getBook(bookId) {
         };
 }
 
-// getBook(bookId);
+getBook(bookId);
