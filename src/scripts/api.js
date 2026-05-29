@@ -812,7 +812,7 @@ const aside = document.querySelector('aside');
 async function searchBook() {
     // 1. On donne le chemin RELATIF vers le fichier JSON
     try{
-    const url =`https://www.googleapis.com/books/v1/volumes?q=harry+potter&langRestrict=fr&maxResults=40&key=${apiKey}`;
+    const url =`https://www.googleapis.com/books/v1/volumes?q=l'espace+d'un+an&langRestrict=fr&maxResults=40&key=${apiKey}`;
     const dataApi = await fetch(url);
     console.log(dataApi);
         // 2. On convertit la réponse brute en tableau/objet JS
