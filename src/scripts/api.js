@@ -812,8 +812,9 @@ const aside = document.querySelector('aside');
 async function searchBook() {
     // 1. On donne le chemin RELATIF vers le fichier JSON
     try{
-    const url =`https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=${apiKey}`;
+    const url =`https://www.googleapis.com/books/v1/volumes?q=harry+potter&langRestrict=fr&maxResults=40&key=${apiKey}`;
     const dataApi = await fetch(url);
+    console.log(dataApi);
         // 2. On convertit la réponse brute en tableau/objet JS
             if (!dataApi.ok) {
                 throw new Error("Impossible de charger le fichier JSON");
@@ -821,9 +822,11 @@ async function searchBook() {
         const data = await dataApi.json();
         // 3. On utilise les données reçues
         console.log("Données locales reçues :", data);
-        const dataBooks = data.items;
-        console.log(dataBooks);
-        dataBooks.forEach(book => {
+        
+        const dataFr = data.items.filter(book => book.volumeInfo.language === "fr");
+        console.log(dataFr)
+        // const dataBooks = dataFr.items;
+        dataFr.forEach(book => {
         aside.append(createCardBook(book));
         });
         }
@@ -832,9 +835,8 @@ async function searchBook() {
         };
 }
 
-// inauthor:becky+chambers
 
-// searchBook();
+searchBook();
 
 function createCardBook(book){
     const cardBook = document.createElement('article');

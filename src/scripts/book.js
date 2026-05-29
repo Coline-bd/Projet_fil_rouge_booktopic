@@ -1,107 +1,56 @@
-const apiKey=import.meta.env.VITE_API_KEY
+import DOMPurify from "dompurify";
 
-// const info = {
-//             "title": "L'Espace d'un an",
-//             "subtitle": "Les Voyageurs, T1",
-//             "authors": [
-//                 "Becky Chambers"
-//             ],
-//             "publisher": "L'Atalante",
-//             "publishedDate": "2020-11-26",
-//             "description": "Premier volume des « Voyageurs », série lauréate du prestigieux prix Hugo, L’Espace d’un an signe les débuts de Becky Chambers, dont la plume et les récits ont bouleversé la science-fiction. Rosemary, jeune humaine inexpérimentée, fuit sa famille de richissimes escrocs. Elle est engagée comme greffière à bord du Voyageur, ...",
-//             "industryIdentifiers": [
-//                 {
-//                     "type": "ISBN_13",
-//                     "identifier": "9782367934372"
-//                 },
-//                 {
-//                     "type": "ISBN_10",
-//                     "identifier": "2367934371"
-//                 }
-//             ],
-//             "readingModes": {
-//                 "text": true,
-//                 "image": true
-//             },
-//             "pageCount": 421,
-//             "printType": "BOOK",
-//             "categories": [
-//                 "Fiction"
-//             ],
-//             "maturityRating": "NOT_MATURE",
-//             "allowAnonLogging": true,
-//             "contentVersion": "1.25.24.0.preview.3",
-//             "panelizationSummary": {
-//                 "containsEpubBubbles": false,
-//                 "containsImageBubbles": false
-//             },
-//             "imageLinks": {
-//                 "smallThumbnail": "http://books.google.com/books/content?id=5ZuhDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-//                 "thumbnail": "http://books.google.com/books/content?id=5ZuhDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-//             },
-//             "language": "fr",
-//             "previewLink": "http://books.google.fr/books?id=5ZuhDAAAQBAJ&printsec=frontcover&dq=inauthor:becky+chambers&hl=&cd=4&source=gbs_api",
-//             "infoLink": "https://play.google.com/store/books/details?id=5ZuhDAAAQBAJ&source=gbs_api",
-//             "canonicalVolumeLink": "https://play.google.com/store/books/details?id=5ZuhDAAAQBAJ"
-//         };
+const apiKey=import.meta.env.VITE_API_KEY //récupération de la clé API
 
+//Ajout de l'id du livre dans l'url de la page
 const params = new URLSearchParams(window.location.search);
-
 const bookId =params.get("id");
 
-//Page livre
+//Récupération des éléments de la page Livre
 const title = document.querySelector("#bookTitle");
-
 const subtitle = document.querySelector("#subtitle");
-
 const author = document.querySelector("#bookAuthor");
-
 const description = document.querySelector("#bookDescription");
-
 const cover = document.querySelector("#bookCover");
-
 const datePublication = document.querySelector("#bookPublication");
-
 const bookEdition = document.querySelector("#bookEdition");
-
 const category =document.querySelector("#bookCategory");
+const breadcrumb = document.querySelector('#currentPage'); //fil d'arianne
+const titrePage=document.querySelector('title'); //titre de la page
 
-// const bookId ="5ZuhDAAAQBAJ"; 
-
+getBook(bookId);//appel de la fonction
 
 
 async function getBook(bookId) {
     // 1. On donne le chemin RELATIF vers le fichier JSON
     try{
-    const url =`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${apiKey}`;
-    console.log("fetch lancé");
+        const url =`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${apiKey}`;
+        const dataApi = await fetch(url);
+        console.log(dataApi);
 
-    const dataApi = await fetch(url)
         // 2. On convertit la réponse brute en tableau/objet JS
         if (!dataApi.ok) {
             throw new Error("Impossible de charger le fichier JSON");
-            }
+        }
         const data = await dataApi.json();
-        
-        // 3. On utilise les données reçues
         console.log("Données locales reçues :", data);
+
+        // 3. On utilise les données reçues
         const info = data.volumeInfo;
-        const breadcrumb = document.querySelector('#currentPage');
-        breadcrumb.textContent=info.title;
         title.textContent =info.title;
         subtitle.textContent=info.subtitle;
-        author.textContent = info.authors?.join(", ");
-        category.textContent=info.categories?.join(",");
-        description.innerHTML=info.description || "Description indisponible";
-        cover.src = info.imageLinks? info.imageLinks.thumbnail:"/public/images/imgDefault.png";
+        author.textContent = info.authors?.join(", ") || "Auteur indisponible";
+        category.textContent=info.categories?.join(", ") || "Catégorie indisponible";
+        description.innerHTML = DOMPurify.sanitize(info.description || "Description indisponible"); //nettoyage du texte avant d'utiliser innerHTML contre injection de code
+        cover.src = info.imageLinks?.thumbnail || "/public/images/imgDefault.png";
         cover.alt = info.title;
         datePublication.textContent=info.publishedDate;
         bookEdition.textContent=info.publisher;
-        
-        }
-        catch(error) {
-            console.error("Erreur lors de la lecture du JSON :", error);
-        };
+        titrePage.textContent=`${info.title} | Booktopic`; //titre de la page
+        breadcrumb.textContent=info.title; //fil d'arianne
+    }
+    catch(error) {
+        console.error("Erreur lors de la lecture du JSON :", error);
+    };
 }
 
-getBook(bookId);

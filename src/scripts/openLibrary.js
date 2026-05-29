@@ -31,7 +31,7 @@ async function loadBooks() {
   const books = await searchBooksByCategory("fantasy");
   displayBooks(books);
 }
-loadBooks();
+// loadBooks();
 
 const gridBooks = document.querySelector('.gridBooks');
 
