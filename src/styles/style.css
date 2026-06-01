@@ -115,9 +115,10 @@ header nav{
 button{
     background-color: var(--color-bg);
     fill: var(--color-text);
-    border: 1px solid var(--color-bg);
+    border: none;
     cursor: pointer;
     height: 100%;
+    padding: 0 1rem;
 }
 
 header form{
@@ -376,6 +377,16 @@ h2{
     text-decoration: none;
 }
 
+.titleLink{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#subtitle, .author{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
 .date{
     color: var(--color-text-secondary);
     font-size: 1rem;
@@ -406,6 +417,7 @@ h2{
     align-items: center;
     gap: 0.5rem;
 }
+
 .actionComment button, .actionComment span{
     color: var(--color-text);
     font-size: 1rem;
@@ -473,7 +485,6 @@ main aside{
 
 .titleCardBook{
     font-size: 1.2rem;
-    text-decoration: none;
     color: var(--color-text);
     font-weight: 500;
     overflow: hidden;
@@ -495,78 +506,70 @@ main aside{
     .navSecond a:hover{
         background-color: var(--color-bg-secondary);
     }
-
 }
+
 
 /*Responsive*/
 /*Tablette*/
 @media screen and (min-width : 640px){
-    .layout{
-    display: grid;
+    .layout{/*ajout d'une colonne pour la navBarre*/
     grid-template-columns: 14rem auto;
-    grid-template-rows: 3rem auto;
     }
-    #navBarre{
+    #navBarre{/*affichage navBarre*/
         transform: translateX(0);
         pointer-events: auto;
     }
-
-    footer{
+    footer{/*affichage footer*/
         transform: translateX(0);
     }
-
     header{
     grid-column: 1/span 2;
     }
     main{
     grid-column: 2;
-    grid-row: 2;
     }
-    #bookSection{
+    #bookSection{/*Présentation détaillée du livre en ligne*/
     display: flex;
     flex-direction: row;
     gap: 1rem;
     }
-
-    header input{
+    header input{/*affichage barre de recherche*/
     display: block;
     }
-
     header form{
         display: flex;
         gap: 0.5rem;
     }
-    .gridBooks{
+    .gridBooks{/*disposition des card sur 3 colonnes*/
     grid-template-columns: repeat(3,1fr);
     gap: 0.5rem;
-}
-    #menu{
+    }
+    #menu{/*retirer le menu burger*/
     display: none;
-}
+    }
 }
 
 /*Laptop et desktop*/
 @media screen and (min-width: 1024px){
-    main{
+    main{/*ajout d'une section aside*/
         display: grid;
         grid-template-columns: auto 14rem;
     }
-    h1{
+    h1{/*disposition des titres sur les 2 colonnes*/
         grid-column: 1/span 2;
-        grid-row: 2;
         font-size: 2rem;
     }
     h2{
         font-size: 1.5rem;
     }
-    main aside{
+    main aside{/*affichage de la section aside*/
     display: flex;
     grid-column: 2;
     grid-row: 3;
     flex-direction: column;
     gap: 2rem;
     }
-    .gridBooks{
+    .gridBooks{/*disposition des card sur 4 colonnes*/
     grid-template-columns: repeat(4,1fr);
-}
+    }
 }
