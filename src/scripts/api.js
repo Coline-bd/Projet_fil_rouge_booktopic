@@ -29,7 +29,7 @@ async function searchBook() {
 }
 
 
-// searchBook();
+searchBook();
 
 function createCardBook(book){
     const cardBook = document.createElement('article');
