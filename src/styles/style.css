@@ -447,8 +447,6 @@ textarea::placeholder{
 
 main aside{
     display: none;
-    flex-direction: column;
-    gap: 2rem;
 }
 
 .cardBook{
