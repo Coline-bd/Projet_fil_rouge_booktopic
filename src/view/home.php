@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livre | Booktopic</title>
+    <title>Accueil | Booktopic</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    
 </head>
 <body>
     <div class="layout">
     <header role="banner">
         <nav role="navigation" aria-label="En tête principale">
-            <button type="button" id="menu" aria-label="ouvrir le menu">
+            <button button type="button" id="menu" aria-label="ouvrir le menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" role="img" aria-label="menu" viewBox="0 0 640 640"><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
             </button>
             <form action="#" method="post" role="search">
@@ -21,7 +22,7 @@
                 </button> 
             </form>
         </nav>
-        <a href="../../index.html"> <img id="logo" src="../../public/images/BooktopicLight.svg" alt="Logo Booktopic"></a>
+        <a href="./"> <img id="logo" src="./public/images/BooktopicLight.svg" alt="Logo Booktopic"></a>
         <nav role="navigation" id="navAccount" aria-label="actions paramètres de compte">
             <button type="button" id="navAccountBtn" > 
                 <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" viewBox="0 0 512 512" role="img" aria-label="paramètres de compte"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
@@ -37,83 +38,27 @@
             </ul>
         </nav>
     </header>
-    <nav role="navigation" id="navBarre" aria-label="navigation principale">
-            <ul>
-                <li> <a href="../../index.html" aria-current="page"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 640 640" class="iconeNav"><path d="M341.8 72.6C329.5 61.2 310.5 61.2 298.3 72.6L74.3 280.6C64.7 289.6 61.5 303.5 66.3 315.7C71.1 327.9 82.8 336 96 336L112 336L112 512C112 547.3 140.7 576 176 576L464 576C499.3 576 528 547.3 528 512L528 336L544 336C557.2 336 569 327.9 573.8 315.7C578.6 303.5 575.4 289.5 565.8 280.6L341.8 72.6zM304 384L336 384C362.5 384 384 405.5 384 432L384 528L256 528L256 432C256 405.5 277.5 384 304 384z" /></svg>
-                    <span>Accueil</span>
-                </a></li>
-                <li> <a href="./profile.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 512 512" class="iconeNav"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
-                    <span>Mon profil</span> 
-                    </a></li>
-                <li> <a href="./Library.html"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 640 640" class="iconeNav"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 325.3 448 312C448 298.7 437.3 288 424 288L248 288z"/></svg>
-                    <span>Livres</span> 
-                </a></li>
-                <li> <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"class="iconeNav" viewBox="0 0 640 640"> <path d="M320 64C302.3 64 288 78.3 288 96L288 99.2C215 114 160 178.6 160 256L160 277.7C160 325.8 143.6 372.5 113.6 410.1L103.8 422.3C98.7 428.6 96 436.4 96 444.5C96 464.1 111.9 480 131.5 480L508.4 480C528 480 543.9 464.1 543.9 444.5C543.9 436.4 541.2 428.6 536.1 422.3L526.3 410.1C496.4 372.5 480 325.8 480 277.7L480 256C480 178.6 425 114 352 99.2L352 96C352 78.3 337.7 64 320 64zM258 528C265.1 555.6 290.2 576 320 576C349.8 576 374.9 555.6 382 528L258 528z"/></svg> 
-                    <span>Notifications</span>
-                </a></li>
-            </ul>
-    </nav>
-    <main>
-        <nav class="breadcrumb" aria-label="fil d'ariane">
-            <ol>
-                <li><a href="../../index.html"> Accueil</a></li>
-                <li><a href="./library.html"> Livres</a></li>
-                <li id="currentPage" aria-current="page"></li>
-            </ol>
-        </nav>
+    <?php require "components/navbar.php" ?>
+    <main role="main">
+        <h1>Découvrez toutes les actualités</h1>
         <div id="mainSection">
-            <section id="bookSection">
-                <div class="containerCol">
-                    <img id="bookCover">
-                    <button class="addBtn" aria-label="ajouter à ma liste" type="button">Ajouter</button>
-                </div>
-                <div class="containerCol">
-                    <h1 id="bookTitle"></h1>
-                    <p id="subtitle"></p>
-                    <p class="author">De <span id="bookAuthor"></span></p>
-                    <p id="bookCategory"></p>
-                    <div>
-                        <p>Date de parution : <span id="bookPublication"></span></p>
-                    </div>
-                    <div>
-                        <p>Edition : <span id="bookEdition"></span></p>
-                    </div>
-                    <p id="bookDescription"></p>
-                </div>
-            </section>
-            <section>
-                <article class="cardComment">
-                    <div class="containerRow">
-                        <div>
-                            <img class="profileFoto" src="../../public/images/photodeprofil.png">
-                        </div>
-                        <div class="containerCol">
-                            <a href="#" class="pseudo">Colinebd</a>
-                            <span class="date">Maintenant</span>
-                        </div>
-                    </div>
-                    <form action="#" method="post">
-                        <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>
-                        <button type="submit">Publier</button> 
-                    </form>
-                </article>
-                <h2>Commentaires (<span>40</span>)</h2>
+            <h2>Commentaires</h2>
             <article>
             <div class="cardComment">
                 <div class="containerRow">
                     <div>
-                        <img class="profileFoto" src="../../public/images/pdp3.png" alt="photo de profil">
+                        <img class="profileFoto" src="./public/images/pdp5.png" alt="photo de profil">
                     </div>
                     <div class="containerCol">
-                        <a href="#" class="pseudo">Julie</a>
+                        <div>
+                            <a href="#" class="pseudo"> Margot17</a>
+                            <span>a commenté</span>
+                            <a href="#" class="titleLink">L'espace d'un an</a>
+                        </div>
                         <span class="date"> 2 heures </span>
                     </div>
                     </div>
-                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                <p> Je ne m'attendais pas à une si jolie surprise !.. Cette vision de l'évolution de l'espèce humaine après la Catastrophe est pleine d'espoir, et la vie dans cet équipage multi-espèces ne manque ni de saveur ni d'harmonie...</p>
                 <div class="actionComment">
                     <div>
                         <button type="button">
@@ -134,14 +79,14 @@
                 <div class="cardComment">
                     <div class="containerRow">
                         <div>
-                            <img class="profileFoto" src="../../public/images/photodeprofil.png" alt="photo de profil">
+                            <img class="profileFoto" src="./public/images/pdp2.png" alt="profil">
                         </div>
                         <div class="containerCol">
-                                <a href="#" class="pseudo"> Pseudo</a>
+                                <a href="#" class="pseudo">Paul</a>
                                 <span class="date"> 2 heures </span>
                         </div>
-                        </div>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                    </div>
+                    <p> Tellement d’accord et les espèces ont toutes leurs particularités sans être comparées constamment aux humains</p>
                     <div class="actionComment">
                         <div>
                             <button type="button">
@@ -155,14 +100,14 @@
                 <div class="cardComment">
                     <div class="containerRow">
                         <div>
-                            <img class="profileFoto" src="../../public/images/photodeprofil.png" alt="photo de profil">
+                            <img class="profileFoto" src="./public/images/pdp3.png" alt="profil">
                         </div>
                         <div class="containerCol">
-                                <a href="#" class="pseudo"> Pseudo</a>
+                                <a href="#" class="pseudo">Julie</a>
                                 <span class="date"> 2 heures </span>
                         </div>
                         </div>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                    <p> Moi aussi c’est que j’ai préféré, les personnages sont très attachants et les interactions entre eux sont si bienveillantes ça fait tellement du bien.</p>
                     <div class="actionComment">
                         <div>
                             <button type="button">
@@ -175,7 +120,7 @@
                 </div>
             </div>
             <form action="#" method="post">
-                <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>
+                <textarea title="écrire un message" name="message" id="message" placeholder="Ecrire un message" required></textarea>
                 <button type="submit">
                     Publier
                 </button> 
@@ -185,14 +130,18 @@
             <div class="cardComment">
                 <div class="containerRow">
                     <div>
-                        <img class="profileFoto" src="../assets/images/photodeprofil.png" alt="photo de profil">
+                        <img class="profileFoto" src="./public/images/pdp4.png" alt="profil">
                     </div>
                     <div class="containerCol">
-                        <a href="#" class="pseudo"> Pseudo</a>
-                        <span class="date"> 2 heures </span>
+                            <div>
+                            <a href="#" class="pseudo">Mathieu</a>
+                            <span>a commenté</span>
+                            <a href="#" class="titleLink">L'espace d'un an</a>
+                        </div>
+                            <span class="date"> 2 heures </span>
                     </div>
                     </div>
-                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                <p>J’ai eu un peu de mal à accrocher au début mais je trouve que le point de vue de l’auteur est intéressant, dommage que l’intrigue mette du temps à se développer.</p>
                 <div class="actionComment">
                     <div>
                         <button type="button">
@@ -210,19 +159,18 @@
                 </div>
             </div>
             <form action="#" method="post">
-                <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>
+                <textarea title="écrire un message" name="message" id="message" placeholder="Ecrire un message" required></textarea>
                 <button type="submit">
                     Publier
                 </button> 
             </form>
             </article>
-            </section>
         </div>
         <aside>
-            <h2>Suggestions</h2>
-        </aside>    
+            <h2>Livres</h2>    
+        </aside>
     </main>
-    <footer>
+    <footer role="contentinfo">
             <h3>Légal</h3>
             <nav aria-label="liens légaux">
                 <ul>
@@ -234,8 +182,8 @@
             </nav>
             <p>© 2026 - Booktopic</p>
         </footer>
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/api.js" type="module"></script>
-    <script src="../scripts/book.js" type="module"></script>
+    </div>
+    <!-- <script src="./src/scripts/main.js"></script>
+    <script src="./src/scripts/api.js" type="module"></script> -->
 </body>
 </html>

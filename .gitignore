@@ -4,5 +4,8 @@
 #VS code
 .vscode
 
+env.php
+
+.htaccess
 
 node_modules/
