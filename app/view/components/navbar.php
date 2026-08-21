@@ -1,5 +1,3 @@
-
-
 <nav role="navigation" id="navBarre" aria-label="navigation principale">
             <ul>
                 <li><a href="./" aria-current="page"> 

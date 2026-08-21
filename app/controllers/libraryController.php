@@ -2,5 +2,5 @@
 
 function displayLibrary(){
 
-    require  "../src/view/library.php";
+    require  "../app/view/library.php";
 }

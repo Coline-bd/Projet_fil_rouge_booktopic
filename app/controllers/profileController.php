@@ -2,6 +2,6 @@
 
 function displayProfile(){
 
-    require  "../src/view/profile.php";
+    require  "../app/view/profile.php";
 }
 

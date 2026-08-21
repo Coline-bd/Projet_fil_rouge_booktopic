@@ -2,6 +2,6 @@
 
 function displayHome(){
 
-    require  "../src/view/home.php";
+    require  "../app/view/home.php";
 }
 

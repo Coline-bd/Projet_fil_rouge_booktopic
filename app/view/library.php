@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>colinebd | Booktopic</title>
+    <title>Livres | Booktopic</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -21,7 +21,7 @@
                 </button> 
             </form>
         </nav>
-        <a href="../../index.html"> <img id="logo" src="../../public/images/BooktopicLight.svg" alt="Logo Booktopic"></a>
+        <a href="./"> <img id="logo" src="./images/BooktopicLight.svg" alt="Logo Booktopic"></a>
         <nav role="navigation" id="navAccount" aria-label="actions paramètres de compte">
             <button type="button" id="navAccountBtn" > 
                 <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" viewBox="0 0 512 512" role="img" aria-label="paramètres de compte"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
@@ -41,43 +41,25 @@
     <main>
         <nav class="breadcrumb" aria-label="fil d'ariane">
             <ol>
-            <li><a href="../../index.html"> Accueil</a></li>
-            <li aria-current="page"> colinebd</li>
+            <li><a href="./">Accueil</a></li>
+            <li aria-current="page">Livres</li>
             </ol>
         </nav>
-        <h1>Mon profil</h1>
+        <h1>Tous les livres</h1>
         <div id="mainSection">
-            <section class="containerRow">
-                <div>
-                    <img class="profileFoto" src="../../public/images/photodeprofil.png" alt="photo de profil">
-                </div>
-                <div class="containerCol">
-                    <div class="containerRow">
-                        <a href="#" class="pseudo"> Pseudo</a> <button class="editBtn" type="button">Modifier</button>
-                    </div>
-                    <div class="follow">
-                        <a href="#"><span>50</span> abonnés</a>
-                        <a href="#"><span>102</span> abonnements</a>
-                    </div>
-                    <div>
-                        <span>science-fiction</span> <span>fantasy</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorum natus ipsum at quas iusto, vitae dignissimos consectetur reprehenderit deserunt error voluptatibus. Dolorum officia, vitae quam illo unde quas nemo.</p>
-                </div>
-            </section>
             <nav class="navSecond" aria-label="navigation secondaire">
                 <ul>
                 <li> <a href="./Library.html"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" class="iconeNav"> <path d="M384 32c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0zM64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80zm230.7 89.9c7.8-10.7 22.8-13.1 33.5-5.3 10.7 7.8 13.1 22.8 5.3 33.5L211.4 366.1c-4.1 5.7-10.5 9.3-17.5 9.8-7 .5-13.9-2-18.8-6.9l-55.9-55.9c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l36 36 105.6-145.2z"/></svg>
-                    <span>Livres lus</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false" class="iconeNav"><path d="M341.8 72.6C329.5 61.2 310.5 61.2 298.3 72.6L74.3 280.6C64.7 289.6 61.5 303.5 66.3 315.7C71.1 327.9 82.8 336 96 336L112 336L112 512C112 547.3 140.7 576 176 576L464 576C499.3 576 528 547.3 528 512L528 336L544 336C557.2 336 569 327.9 573.8 315.7C578.6 303.5 575.4 289.5 565.8 280.6L341.8 72.6zM304 384L336 384C362.5 384 384 405.5 384 432L384 528L256 528L256 432C256 405.5 277.5 384 304 384z"/></svg>
+                    <span>Nouveautés</span>
                 </a></li>
                 <li> <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" class="iconeNav"><path d="M48 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM48 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM96 256a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/></svg>
-                    <span>Pile à lire</span> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" class="iconeNav"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
+                    <span>Populaires</span> 
                     </a></li>
                 <li> <a href="#"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" class="iconeNav"><path d="M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z"/></svg> 
-                    <span>Commentaires</span> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false" class="iconeNav"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 325.3 448 312C448 298.7 437.3 288 424 288L248 288z"/></svg>
+                    <span>Catégories</span> 
                 </a></li>
             </ul>
             </nav>
@@ -91,9 +73,10 @@
         </div>
         <aside>
             <h2>Suggestions</h2>
-        </aside>    
+        
+        </aside>
     </main>
-    <footer>
+        <footer>
             <h3>Légal</h3>
             <nav aria-label="liens légaux">
                 <ul>
@@ -106,7 +89,9 @@
             <p>© 2026 - Booktopic</p>
         </footer>
     </div>
-    <script src="../scripts/main.js"></script>
-    <script type="module" src="../scripts/api.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/api.js"></script>
+    <script type="module" src="./scripts/openLibrary.js"></script>
+    
 </body>
 </html>
