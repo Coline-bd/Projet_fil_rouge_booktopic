@@ -61,7 +61,8 @@ name_category VARCHAR(50) NOT NULL UNIQUE
 
 CREATE TABLE IF NOT EXISTS `list`(
 id_list INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-id_type INT NOT NULL
+id_type INT NOT NULL,
+id_user INT NOT NULL
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS book(
@@ -70,8 +71,9 @@ title_book VARCHAR(50) NOT NULL,
 subtitle_book VARCHAR(50),
 published_at_book DATE NOT NULL,
 summary_book TEXT,
-id_author INT,
-id_editor INT
+author_book VARCHAR(50),
+cover_book VARCHAR(255),
+editor_book VARCHAR(50)
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS category_book(
@@ -84,17 +86,6 @@ CREATE TABLE IF NOT EXISTS list_book(
 id_book INT,
 id_list INT,
 PRIMARY KEY(id_book,id_list)
-)ENGINE=innoDB;
-
-CREATE TABLE IF NOT EXISTS editor(
-id_editor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name_editor VARCHAR(50) NOT NULL UNIQUE
-)ENGINE=innoDB;
-
-CREATE TABLE IF NOT EXISTS author(
-id_author INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-firstname_author VARCHAR(50) NOT NULL,
-lastname_author VARCHAR(50) NOT NULL
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS to_like(
@@ -137,14 +128,6 @@ ADD CONSTRAINT fk_to_prefer_user
 FOREIGN KEY (id_user)
 REFERENCES `user`(id_user);
 
-ALTER TABLE user_list
-ADD CONSTRAINT fk_to_register_list
-FOREIGN KEY (id_list)
-REFERENCES list(id_list),
-ADD CONSTRAINT fk_to_register_user
-FOREIGN KEY (id_user)
-REFERENCES `user`(id_user);
-
 ALTER TABLE note
 ADD CONSTRAINT fk_to_note_user
 FOREIGN KEY (id_user)
@@ -169,6 +152,10 @@ ALTER TABLE `list`
 ADD CONSTRAINT fk_to_associate_type
 FOREIGN KEY (id_type)
 REFERENCES `type`(id_type)
+ON DELETE CASCADE,
+ADD CONSTRAINT fk_to_create_user
+FOREIGN KEY (id_user)
+REFERENCES `user`(id_user)
 ON DELETE CASCADE;
 
 ALTER TABLE category_book
@@ -187,3 +174,25 @@ ADD CONSTRAINT fk_to_add_book
 FOREIGN KEY (id_book)
 REFERENCES book(id_book);
 
+-- Ajout de données
+
+-- rôles des utilisateurs
+INSERT INTO `role`(name_role) VALUES ("administrateur"),("utilisateur");
+
+INSERT INTO `user`(firstname_user,lastname_user,login_user,mail_user,password_user,birthdate,picture_user,presentation_user,id_role)
+VALUES ("Margot","Pascal","Margot17","margotpascal@test.fr","password123","2001-01-02","./images/pdp2.png","J'adore les thrillers !",2),
+("Paul","Bernard","Paulo","paulbernard@test.fr","password123","1995-12-15","./images/pdp3.png","J'adore les mangas",2);
+
+-- catégories
+INSERT INTO category(name_category) VALUES ("Fantasy"),("Romance"),("Thriller"),("Horreur"),("Manga"),("Policier"),("Science-fiction");
+
+INSERT INTO user_category(id_user,id_category) VALUES (1,1),(1,3),(2,5),(2,7);
+
+-- Livres
+INSERT INTO book(title_book,published_at_book,summary_book,editor_book,author_book,cover_book)
+VALUE	("Le problème à trois corps","2026-10-05",
+"En pleine Révolution culturelle, le pouvoir chinois construit la base militaire secrète de Côte Rouge, destinée à développer une arme de grand calibre. Ye Wenjie, une jeune astrophysicienne en cours de rééducation, intègre l'équipe de recherche. Dans ce lieu isolé où elle croit devoir passer le restant de sa vie, elle est amenée à travailler sur un système de télétransmissions dirigé vers l'espace et découvre peu à peu la véritable mission de Côte Rouge...
+Trente-huit ans plus tard, alors qu'une étrange vague de suicides frappe la communauté scientifique internationale, l'éminent chercheur en nanotechnologies Wang Miao est témoin de phénomènes paranormaux qui bouleversent ses convictions d'homme rationnel. Parmi eux, une inexplicable suite de nombres qui défile sur sa rétine, tel un angoissant compte à rebours...","Actes Sud","Liu Cixin","https://static.fnac-static.com/multimedia/PE/Images/FR/NR/6f/23/9b/10167151/1540-1/tsp20240607073037/Le-Probleme-a-trois-corps.jpg");
+
+-- Commentaires
+INSERT INTO `comment`(content_comment,id_book,id_user) VALUE ("J'ai adoré lire ce livre du début à la fin ! Je recommande mille fois.",1,1);
