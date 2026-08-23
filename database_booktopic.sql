@@ -10,7 +10,7 @@ lastname_user VARCHAR(50) NOT NULL,
 login_user VARCHAR(50) NOT NULL UNIQUE,
 mail_user VARCHAR(100) NOT NULL UNIQUE,
 password_user VARCHAR(100) NOT NULL,
-birthdate DATE NOT NULL,
+birthdate_user DATE NOT NULL,
 picture_user VARCHAR(255),
 presentation_user VARCHAR(255),
 id_role INT
@@ -179,9 +179,9 @@ REFERENCES book(id_book);
 -- rôles des utilisateurs
 INSERT INTO `role`(name_role) VALUES ("administrateur"),("utilisateur");
 
-INSERT INTO `user`(firstname_user,lastname_user,login_user,mail_user,password_user,birthdate,picture_user,presentation_user,id_role)
-VALUES ("Margot","Pascal","Margot17","margotpascal@test.fr","password123","2001-01-02","./images/pdp2.png","J'adore les thrillers !",2),
-("Paul","Bernard","Paulo","paulbernard@test.fr","password123","1995-12-15","./images/pdp3.png","J'adore les mangas",2);
+INSERT INTO `user`(firstname_user,lastname_user,login_user,mail_user,password_user,birthdate_user,picture_user,presentation_user,id_role)
+VALUES ("Margot","Pascal","Margot17","margotpascal@test.fr","password123","2001-01-02","/images/pdp2.png","J'adore les thrillers !",2),
+("Paul","Bernard","Paulo","paulbernard@test.fr","password123","1995-12-15","/images/pdp3.png","J'adore les mangas",2);
 
 -- catégories
 INSERT INTO category(name_category) VALUES ("Fantasy"),("Romance"),("Thriller"),("Horreur"),("Manga"),("Policier"),("Science-fiction");
@@ -195,4 +195,8 @@ VALUE	("Le problème à trois corps","2026-10-05",
 Trente-huit ans plus tard, alors qu'une étrange vague de suicides frappe la communauté scientifique internationale, l'éminent chercheur en nanotechnologies Wang Miao est témoin de phénomènes paranormaux qui bouleversent ses convictions d'homme rationnel. Parmi eux, une inexplicable suite de nombres qui défile sur sa rétine, tel un angoissant compte à rebours...","Actes Sud","Liu Cixin","https://static.fnac-static.com/multimedia/PE/Images/FR/NR/6f/23/9b/10167151/1540-1/tsp20240607073037/Le-Probleme-a-trois-corps.jpg");
 
 -- Commentaires
-INSERT INTO `comment`(content_comment,id_book,id_user) VALUE ("J'ai adoré lire ce livre du début à la fin ! Je recommande mille fois.",1,1);
+INSERT INTO `comment`(content_comment,id_book,id_user) VALUES ("Je ne m'attendais pas à une si jolie surprise !.. Cette vision de l'évolution de l'espèce humaine après la Catastrophe est pleine d'espoir, et la vie dans cet équipage multi-espèces ne manque ni de saveur ni d'harmonie...",1,1),
+("J’ai eu un peu de mal à accrocher au début mais je trouve que le point de vue de l’auteur est intéressant, dommage que l’intrigue mette du temps à se développer.",1,2);
+
+
+SELECT * FROM user_category WHERE id_user = 1;
