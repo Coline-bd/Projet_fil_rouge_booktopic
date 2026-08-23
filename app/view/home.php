@@ -53,7 +53,7 @@
                         <div>
                             <a href="/profile/Margot17" class="pseudo"> Margot17</a>
                             <span>a commenté</span>
-                            <a href="#" class="titleLink">L'espace d'un an</a>
+                            <a href="/book" class="titleLink">L'espace d'un an</a>
                         </div>
                         <span class="date"> 2 heures </span>
                     </div>

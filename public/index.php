@@ -3,9 +3,13 @@ include('../env.php');
 include("../app/tools/connect.php");
 include("../app/controllers/homeController.php");
 include("../app/controllers/userController.php");
-include("../app/models/userRepository.php");
-include("../app/models/user.php");
+include("../app/controllers/bookController.php");
 include("../app/controllers/libraryController.php");
+include("../app/models/userRepository.php");
+include("../app/models/bookRepository.php");
+include("../app/models/user.php");
+include("../app/models/book.php");
+
 
 //1. Récupérer l'url demandé par l'utilisateur
 $url = parse_url($_SERVER['REQUEST_URI']);
@@ -28,10 +32,13 @@ switch ($resource) {
     case $_ENV['profile'] :
         $controller=new UserController(new UserRepository(connect_db()));
         $controller->displayProfile($param);
-        
         break;
-        case $_ENV['library'] :
+    case $_ENV['library'] :
         displayLibrary();
+        break;
+    case $_ENV['book'] :
+        $controller=new BookController(new BookRepository(connect_db()));
+        $controller->displayBook(1);
         break;
     default:
         echo "erreur 404";
