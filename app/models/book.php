@@ -10,6 +10,7 @@ class Book{
     private string $editor_book;
     private string $author_book;
     private ?array $categories;
+    private ?int $nb_comment;
 
     public function __construct(
         int $id_book,
@@ -20,7 +21,8 @@ class Book{
         ?string $summary_book,
         string $editor_book,
         string $author_book,
-        ?array $categories
+        ?array $categories,
+        ?int $nb_comment
         )
         {
         $this->id_book=$id_book;
@@ -32,6 +34,7 @@ class Book{
         $this->editor_book=$editor_book;
         $this->author_book=$author_book;
         $this->categories=$categories;
+        $this->nb_comment=$nb_comment;
         }
 
     public function getId(): int
@@ -77,5 +80,9 @@ class Book{
     public function getCategory(): array
     {
         return $this->categories;
+    }
+    public function getNbComment():int
+    {
+        return $this->nb_comment;
     }
 }
