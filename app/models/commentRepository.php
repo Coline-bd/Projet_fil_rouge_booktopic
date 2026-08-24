@@ -25,7 +25,7 @@ class CommentRepository{
             }
             $comments=[];
             foreach($data as $value){
-            $comments[]= new Comment($value["id_comment"],$value["date_comment"],$value["content_comment"],$value["id_user"]);
+                $comments[]= new Comment($value["id_comment"],$value["date_comment"],$value["content_comment"],$value["id_user"],$value["login_user"],$value["picture_user"]);
             }
             return $comments;
             

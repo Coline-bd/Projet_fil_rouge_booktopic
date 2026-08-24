@@ -88,10 +88,10 @@
                 <div class="cardComment">
                 <div class="containerRow">
                     <div>
-                        <img class="profileFoto" src="../../public/images/pdp3.png" alt="photo de profil">
+                        <img class="profileFoto" src="<?= $comment->getPictureAuthor() ?>" alt="photo de profil">
                     </div>
                     <div class="containerCol">
-                        <a href="#" class="pseudo"><?= $comment->getId() ?></a>
+                        <a href="#" class="pseudo"><?= $comment->getLoginAuthor() ?></a>
                         <span class="date"> <?= $comment->getDate() ?> </span>
                     </div>
                     </div>
