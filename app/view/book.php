@@ -83,18 +83,19 @@
                     </form>
                 </article>
                 <h2>Commentaires (<span>40</span>)</h2>
-            <article>
-            <div class="cardComment">
+                <?php foreach ($comments as $comment):?>
+                <article>
+                <div class="cardComment">
                 <div class="containerRow">
                     <div>
                         <img class="profileFoto" src="../../public/images/pdp3.png" alt="photo de profil">
                     </div>
                     <div class="containerCol">
-                        <a href="#" class="pseudo">Julie</a>
-                        <span class="date"> 2 heures </span>
+                        <a href="#" class="pseudo"><?= $comment->getId() ?></a>
+                        <span class="date"> <?= $comment->getDate() ?> </span>
                     </div>
                     </div>
-                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At reiciendis quae aperiam, est non excepturi odit distinctio, explicabo qui sequi corporis voluptate? Veniam beatae quod ut, blanditiis dolores fugiat tempore?</p>
+                <p> <?= $comment->getContent() ?></p>
                 <div class="actionComment">
                     <div>
                         <button type="button">
@@ -162,6 +163,7 @@
                 </button> 
             </form>
             </article>
+            <?php endforeach ?>
             <article>
             <div class="cardComment">
                 <div class="containerRow">

@@ -7,8 +7,10 @@ include("../app/controllers/bookController.php");
 include("../app/controllers/libraryController.php");
 include("../app/models/userRepository.php");
 include("../app/models/bookRepository.php");
+include("../app/models/commentRepository.php");
 include("../app/models/user.php");
 include("../app/models/book.php");
+include("../app/models/comment.php");
 
 
 //1. Récupérer l'url demandé par l'utilisateur
@@ -37,7 +39,7 @@ switch ($resource) {
         displayLibrary();
         break;
     case $_ENV['book'] :
-        $controller=new BookController(new BookRepository(connect_db()));
+        $controller=new BookController(new BookRepository(connect_db()),new CommentRepository(connect_db()));
         $controller->displayBook(1);
         break;
     default:
