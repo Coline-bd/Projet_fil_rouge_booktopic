@@ -77,8 +77,9 @@
                             <span class="date">Maintenant</span>
                         </div>
                     </div>
-                    <form action="#" method="post">
-                        <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>
+                    <form action="/book/<?= $book->getId() ?>/comment" method="post">
+                        <label for="comment">Ajouter un commentaire</label>
+                        <textarea name="comment" id="reponse" placeholder="Ecrire un message" required></textarea>
                         <button type="submit">Publier</button> 
                     </form>
                 </article>

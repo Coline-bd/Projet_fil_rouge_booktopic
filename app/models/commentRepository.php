@@ -35,4 +35,18 @@ class CommentRepository{
         }
     }
 
+    public function create(string $content,int $id_user,int $id_book):void{
+        try{
+            $req=$this->pdo->prepare("INSERT INTO `comment`(content_comment,id_user,id_book) 
+            VALUE (?,?,?);"
+            );
+            $req->bindValue(1,$content);
+            $req->bindValue(2,$id_user,pdo::PARAM_INT);
+            $req->bindValue(3,$id_book,pdo::PARAM_INT);
+            $req->execute();
+        }
+        catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
 }
