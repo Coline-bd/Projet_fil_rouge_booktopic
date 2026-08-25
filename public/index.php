@@ -4,6 +4,7 @@ include("../app/tools/connect.php");
 include("../app/controllers/homeController.php");
 include("../app/controllers/userController.php");
 include("../app/controllers/bookController.php");
+include("../app/controllers/commentController.php");
 include("../app/controllers/libraryController.php");
 include("../app/models/userRepository.php");
 include("../app/models/bookRepository.php");
@@ -24,7 +25,7 @@ $segments = $path === '' ? [] : explode('/', $path);
 
 $resource = $segments[0] ?? '';
 $param = $segments[1] ?? null;
-
+$action = $segments[2] ?? null;
 
 //3. Appeler le Controller lié à la route demandée
 switch ($resource) {
@@ -39,8 +40,12 @@ switch ($resource) {
         displayLibrary();
         break;
     case $_ENV['book'] :
+        if($action==="comment"){
+            $addComment=new CommentController(new CommentRepository(connect_db()));
+            $addComment->create(1);//temporaire 1=$param
+        }
         $controller=new BookController(new BookRepository(connect_db()),new CommentRepository(connect_db()));
-        $controller->displayBook(1);
+        $controller->displayBook(1);//temporaire 1=$param
         break;
     default:
         echo "erreur 404";

@@ -8,9 +8,8 @@ class CommentController{
         $this->commentRepository=$commentRepository;
     }
 
-    public function create(int $idBook): void
-{
-    $content = trim($_POST['content'] ?? '');
+    public function create(int $id_book): void{
+    $content = trim($_POST['comment'] ?? '');
 
     if ($content === '') {
         http_response_code(400);
@@ -25,15 +24,11 @@ class CommentController{
     }
 
     // Temporaire
-    $idUser = $_SESSION['user_id'];
+    $id_user =1; //temporaire $_SESSION['id_user'];
 
-    $this->commentRepository->create(
-        $content,
-        $idBook,
-        $idUser
-    );
+    $this->commentRepository->create($content,$id_user,$id_book); //add comment in database
 
-    header('Location: /books/' . $idBook);
+    header('Location: /book/' . $id_book);
     exit;
-    }
+}
 }
