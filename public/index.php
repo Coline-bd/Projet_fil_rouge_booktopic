@@ -4,7 +4,7 @@ session_start();
 $_SESSION['id_user'] = 1;
 
 include('../env.php');
-include("../app/tools/connect.php");
+include("../app/tools/DatabaseConnection.php");
 include("../app/controllers/homeController.php");
 include("../app/controllers/userController.php");
 include("../app/controllers/bookController.php");
@@ -37,7 +37,7 @@ switch ($resource) {
         displayHome();
         break;
     case $_ENV['profile'] :
-        $controller=new UserController(new UserRepository(connect_db()));
+        $controller=new UserController(new UserRepository(new DatabaseConnection));
         $controller->displayProfile($param);
         break;
     case $_ENV['library'] :
@@ -45,10 +45,10 @@ switch ($resource) {
         break;
     case $_ENV['book'] :
         if($action==="comment"){
-            $addComment=new CommentController(new CommentRepository(connect_db()));
+            $addComment=new CommentController(new CommentRepository(new DatabaseConnection));
             $addComment->create(1);//temporaire 1=$param
         }
-        $controller=new BookController(new BookRepository(connect_db()),new CommentRepository(connect_db()));
+        $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection));
         $controller->displayBook(1);//temporaire 1=$param
         break;
     default:

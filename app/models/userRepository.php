@@ -2,18 +2,18 @@
 
 class UserRepository{
     //atributes
-    private PDO $pdo;
+    private DatabaseConnection $connection;
 
     //construct
-    public function __construct(PDO $pdo)
+    public function __construct(DatabaseConnection $connection)
     {
-        $this->pdo = $pdo;
+        $this->connection = $connection;
     }
 
     //methods
     public function findById(int $id): ?User{
         try{
-            $req=$this->pdo->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,mail_user,birthdate_user,u.id_role,GROUP_CONCAT(name_category) as categories FROM `user` as u 
+            $req=$this->connection->getConnection()->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,mail_user,birthdate_user,u.id_role,GROUP_CONCAT(name_category) as categories FROM `user` as u 
             LEFT JOIN user_category as uc ON u.id_user=uc.id_user 
             LEFT JOIN category as c ON uc.id_category=c.id_category WHERE u.id_user=? 
             GROUP BY u.id_user;");
@@ -35,7 +35,7 @@ class UserRepository{
 
     public function findByLogin(string $login): ?User{
         try{
-            $req=$this->pdo->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,mail_user,birthdate_user,u.id_role,GROUP_CONCAT(name_category) as categories FROM `user` as u 
+            $req=$this->connection->getConnection()->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,mail_user,birthdate_user,u.id_role,GROUP_CONCAT(name_category) as categories FROM `user` as u 
             LEFT JOIN user_category as uc ON u.id_user=uc.id_user 
             LEFT JOIN category as c ON uc.id_category=c.id_category WHERE u.login_user=? 
             GROUP BY u.id_user;");
@@ -57,7 +57,7 @@ class UserRepository{
 
     public function findAll():?array{
         try{
-            $req=$this->pdo->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,name_category FROM `user` as u 
+            $req=$this->connection->getConnection()->prepare("SELECT u.id_user,firstname_user,login_user,lastname_user,picture_user,presentation_user,name_category FROM `user` as u 
             JOIN user_category as uc ON u.id_user=uc.id_user 
             JOIN category as c ON uc.id_category=c.id_category");
             $req->execute();
