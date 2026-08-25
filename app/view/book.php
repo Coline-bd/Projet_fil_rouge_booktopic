@@ -93,7 +93,7 @@
                     </div>
                     <div class="containerCol">
                         <a href="/profile/<?= $comment->getLoginAuthor() ?>" class="pseudo"><?= $comment->getLoginAuthor() ?></a>
-                        <span class="date"> <?= $comment->getDate() ?> </span>
+                        <span class="date"> <?= $comment->getDate()->format('d/m/Y à H:i')?> </span>
                     </div>
                     </div>
                 <p> <?= $comment->getContent() ?></p>

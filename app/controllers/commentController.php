@@ -9,26 +9,35 @@ class CommentController{
     }
 
     public function create(int $id_book): void{
-    $content = trim($_POST['comment'] ?? '');
+        $content = trim($_POST['comment'] ?? '');
 
-    if ($content === '') {
-        http_response_code(400);
-        echo 'Le commentaire ne peut pas être vide.';
-        return;
-    }
+        //verif connexion
+        if (!isset($_SESSION['id_user'])) {
+            http_response_code(401);
+            echo 'Vous devez être connecté pour commenter.';
+            return;
+        }
+        $id_user=$_SESSION['id_user'];
 
-    if (mb_strlen($content) > 255) {
-        http_response_code(400);
-        echo 'Le commentaire est trop long.';
-        return;
-    }
+        //verif empty content
+        if ($content === '') {
+            http_response_code(400);
+            echo 'Le commentaire ne peut pas être vide.';
+            return;
+        }
 
-    // Temporaire
-    $id_user =1; //temporaire $_SESSION['id_user'];
+        //verif length content
+        if (mb_strlen($content) > 255) {
+            http_response_code(400);
+            echo 'Le commentaire est trop long.';
+            return;
+        }
 
-    $this->commentRepository->create($content,$id_user,$id_book); //add comment in database
+        //add comment in database
+        $this->commentRepository->create($content,$id_user,$id_book); 
 
-    header('Location: /book/' . $id_book);
-    exit;
+        //redirection
+        header('Location: /book/' . $id_book);
+        exit;
 }
 }

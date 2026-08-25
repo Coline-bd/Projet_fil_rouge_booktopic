@@ -2,7 +2,7 @@
 
 class Comment{
     private int $id_comment;
-    private string $date_comment;
+    private DateTimeImmutable $date_comment;
     private string $content_comment;
     private int $id_user;
     private string $login_user;
@@ -10,7 +10,7 @@ class Comment{
 
     public function __construct(
         int $id_comment,
-        string $date_comment,
+        DateTimeImmutable $date_comment,
         string $content_comment,
         int $id_user,
         string $login_user,
@@ -29,7 +29,7 @@ class Comment{
     {
         return $this->id_comment;
     }
-    public function getDate(): string
+    public function getDate(): DateTimeImmutable
     {
         return $this->date_comment;
     }

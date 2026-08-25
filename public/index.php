@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+$_SESSION['id_user'] = 1;
+
 include('../env.php');
 include("../app/tools/connect.php");
 include("../app/controllers/homeController.php");
