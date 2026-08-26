@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use Models\Repository\BookRepository;
+use Models\Repository\CommentRepository;
 
 class BookController{
     private BookRepository $bookRepository;

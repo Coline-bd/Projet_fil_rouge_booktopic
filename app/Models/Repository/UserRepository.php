@@ -1,5 +1,12 @@
 <?php
 
+namespace Models\Repository;
+
+use Tools\DatabaseConnection;
+use Models\Entities\User;
+use PDO;
+use Exception;
+
 class UserRepository{
     //atributes
     private DatabaseConnection $connection;

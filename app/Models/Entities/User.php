@@ -1,5 +1,7 @@
 <?php
 
+namespace Models\Entities;
+
 class User
 {
     //attributs

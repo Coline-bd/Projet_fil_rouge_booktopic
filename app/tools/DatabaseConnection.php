@@ -1,5 +1,8 @@
 <?php 
 
+namespace Tools;
+use PDO;
+
 class DatabaseConnection{
     private ?PDO $database=null;
 

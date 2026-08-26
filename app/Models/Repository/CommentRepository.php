@@ -1,5 +1,13 @@
 <?php
 
+namespace Models\Repository;
+
+use Tools\DatabaseConnection;
+use PDO;
+use DateTimeImmutable;
+use Models\Entities\Comment;
+use Exception;
+
 class CommentRepository{
     private DatabaseConnection $connection;
 

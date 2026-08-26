@@ -1,5 +1,9 @@
 <?php 
 
+namespace Models\Entities;
+
+use DateTimeImmutable;
+
 class Comment{
     private int $id_comment;
     private DateTimeImmutable $date_comment;

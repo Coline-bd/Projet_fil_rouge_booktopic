@@ -1,5 +1,7 @@
 <?php
 
+namespace Models\Entities;
+
 class Book{
     private int $id_book;
     private ?string $cover_book;

@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use Models\Repository\UserRepository;
+
 class UserController{
     private UserRepository $userRepository;
 

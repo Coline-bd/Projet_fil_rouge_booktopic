@@ -1,5 +1,12 @@
 <?php
 
+namespace Models\Repository;
+
+use PDO;
+use Tools\DatabaseConnection;
+use Models\Entities\Book;
+use Exception;
+
 class BookRepository{
     private DatabaseConnection $connection;
 
