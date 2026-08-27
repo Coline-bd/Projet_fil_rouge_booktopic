@@ -3,7 +3,8 @@
         "psr-4": {
             "Controllers\\": "app/Controllers/",
             "Models\\": "app/Models/",
-            "Tools\\" : "app/Tools/"
+            "Tools\\" : "app/Tools/",
+            "View\\" : "app/View/"
         },
         "files": [
             "env.php"

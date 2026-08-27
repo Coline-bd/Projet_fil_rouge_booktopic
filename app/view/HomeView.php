@@ -1,44 +1,32 @@
+<?php
 
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Booktopic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
-    
-</head>
-<body>
-    <div class="layout">
-    <header role="banner">
-        <nav role="navigation" aria-label="En tête principale">
-            <button button type="button" id="menu" aria-label="ouvrir le menu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" role="img" aria-label="menu" viewBox="0 0 640 640"><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
-            </button>
-            <form action="#" method="post" role="search">
-                <input type="search" title="rechercher un livre" placeholder="Rechercher un livre">
-                <button type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" viewBox="0 0 640 640" role="img" aria-label="lancer la recherche"><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/></svg>
-                </button> 
-            </form>
-        </nav>
-        <a href="/"> <img id="logo" src="./images/BooktopicLight.svg" alt="Logo Booktopic"></a>
-        <nav role="navigation" id="navAccount" aria-label="actions paramètres de compte">
-            <button type="button" id="navAccountBtn" > 
-                <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" viewBox="0 0 512 512" role="img" aria-label="paramètres de compte"> <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6-35.6-37.3-57.5-87.9-57.5-143.6 0-114.9 93.1-208 208-208s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="iconeAction" viewBox="0 0 640 640" role="img" aria-label="dérouler"><path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z"/></svg>
-            </button>
-            <ul id="navAccountMenu">
-                <li><a href="#">A propos</a></li>
-                <li><label for="themeBtn">Affichage</label><button type="button" id="themeBtn" aria-label="changer le mode d'affichage">mode dark</button></li>
-                <li><a href="#">Accessiblité</a></li>
-                <li><a href="#">Aide et assistance</a></li>
-                <li><a href="#">Signaler un problème</a></li>
-                <li><a href="#">Se déconnecter</a></li>
-            </ul>
-        </nav>
-    </header>
-    <?php require "components/navbar.php" ?>
+namespace View;
+use View\Components\Header;
+use View\Components\Footer;
+
+class HomeView{
+    private ?string $buffer;
+    private Header $header;
+    private Footer $footer;
+
+    public function __construct(){
+        $this->header=new Header("Accueil | Booktopic");
+        $this->footer=new Footer("../src/scripts/api.js");
+        
+    }
+    public function display():void{
+        echo $this->buffer;
+    }
+
+    public function displayAll(){
+        $this->header->launchBuffer()->display();
+        $this->launchBuffer()->display();
+        $this->footer->launchBuffer()->display();
+    }
+    public function launchBuffer():self{
+
+    ob_start();
+    ?>
     <main role="main">
         <h1>Découvrez toutes les actualités</h1>
         <div id="mainSection">
@@ -170,20 +158,10 @@
             <h2>Livres</h2>    
         </aside>
     </main>
-    <footer role="contentinfo">
-            <h3>Légal</h3>
-            <nav aria-label="liens légaux">
-                <ul>
-                <li> <a href="#"> Politique de confidentialité </a></li>
-                <li> <a href="#"> Mentions légales </a></li>
-                <li> <a href="#"> Politique de cookies </a></li>
-                <li> <a href="#"> CGU </a></li>
-                </ul>
-            </nav>
-            <p>© 2026 - Booktopic</p>
-        </footer>
     </div>
-    <script src="./scripts/main.js"></script>
-    <!-- <script src="../src/scripts/api.js" type="module"></script> -->
-</body>
-</html>
+    
+    <?php
+    $this->buffer=ob_get_clean();
+    return $this;
+    }
+    }

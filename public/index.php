@@ -7,7 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // include('../env.php');
 // include("../app/tools/DatabaseConnection.php");
-include("../app/controllers/homeController.php");
+include("../app/controllers/HomeController.php");
 // include("../app/controllers/userController.php");
 // include("../app/controllers/bookController.php");
 // include("../app/controllers/commentController.php");
@@ -21,6 +21,7 @@ include("../app/controllers/homeController.php");
 
 use Controllers\BookController;
 use Controllers\CommentController;
+use Controllers\HomeController;
 use Controllers\UserController;
 use Models\Entities\Book;
 use Models\Entities\Comment;
@@ -28,6 +29,8 @@ use Models\Entities\User;
 use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use Models\Repository\UserRepository;
+use View\Header;
+use View\HomeView;
 use Tools\DatabaseConnection;
 
 
@@ -47,7 +50,8 @@ $action = $segments[2] ?? null;
 //3. Appeler le Controller lié à la route demandée
 switch ($resource) {
     case '':
-        displayHome();
+        $controller=new HomeController(new HomeView);
+        $controller->render();
         break;
     case $_ENV['profile'] :
         $controller=new UserController(new UserRepository(new DatabaseConnection));
