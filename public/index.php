@@ -32,7 +32,7 @@ use Models\Repository\UserRepository;
 use View\Header;
 use View\HomeView;
 use Tools\DatabaseConnection;
-
+use View\BookView;
 
 //1. Récupérer l'url demandé par l'utilisateur
 $url = parse_url($_SERVER['REQUEST_URI']);
@@ -65,7 +65,7 @@ switch ($resource) {
             $addComment=new CommentController(new CommentRepository(new DatabaseConnection));
             $addComment->create(1);//temporaire 1=$param
         }
-        $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection));
+        $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView);
         $controller->displayBook(1);//temporaire 1=$param
         break;
     default:
