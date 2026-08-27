@@ -53,7 +53,7 @@ switch ($resource) {
         $controller=new HomeController(new HomeView);
         $controller->render();
         break;
-    case $_ENV['profile'] :
+    case $_ENV['user'] :
         $controller=new UserController(new UserRepository(new DatabaseConnection));
         $controller->displayProfile($param);
         break;

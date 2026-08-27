@@ -19,7 +19,7 @@ class BookView{
 
     public function __construct(){
         $this->header=new Header("Livre | Booktopic");
-        $this->footer=new Footer("../src/scripts/api.js");
+        $this->footer=new Footer(["../src/scripts/api.js","../scripts/book.js"]);
     }
 
     public function setComments(array $comments){

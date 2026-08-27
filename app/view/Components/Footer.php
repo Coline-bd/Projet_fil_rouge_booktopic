@@ -4,10 +4,10 @@
 namespace View\Components;
     
 class Footer{
-    private ?string $linkScript;
+    private ?array $linkScript;
     private ?string $buffer;
 
-    public function __construct(string $linkScript){
+    public function __construct(array $linkScript){
         $this->linkScript = $linkScript;
     }
 
@@ -31,7 +31,9 @@ class Footer{
     <p>© 2026 - Booktopic</p>
     </footer>
     <script src="./scripts/main.js"></script>
-    <script src=<?= $this->linkScript ?> type="module"></script>
+    <?php foreach($this->linkScript as $link) : ?>
+    <script src=<?= $link ?> type="module"></script>
+    <?php endforeach ?>
 </body>
 </html>
 <?php 

@@ -11,7 +11,7 @@ class HomeView{
 
     public function __construct(){
         $this->header=new Header("Accueil | Booktopic");
-        $this->footer=new Footer("../src/scripts/api.js");
+        $this->footer=new Footer(["../src/scripts/api.js"]);
         
     }
     public function display():void{
@@ -39,7 +39,7 @@ class HomeView{
                     </div>
                     <div class="containerCol">
                         <div>
-                            <a href="/profile/Margot17" class="pseudo"> Margot17</a>
+                            <a href="/user/Margot17" class="pseudo"> Margot17</a>
                             <span>a commenté</span>
                             <a href="/book" class="titleLink">L'espace d'un an</a>
                         </div>
@@ -70,7 +70,7 @@ class HomeView{
                             <img class="profileFoto" src="./public/images/pdp2.png" alt="profil">
                         </div>
                         <div class="containerCol">
-                                <a href="/profile/Paulo" class="pseudo">Paulo</a>
+                                <a href="/user/Paulo" class="pseudo">Paulo</a>
                                 <span class="date"> 2 heures </span>
                         </div>
                     </div>
