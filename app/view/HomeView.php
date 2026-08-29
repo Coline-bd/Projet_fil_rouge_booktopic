@@ -1,28 +1,9 @@
 <?php
 
 namespace View;
-use View\Components\Header;
-use View\Components\Footer;
 
-class HomeView{
-    private ?string $buffer;
-    private Header $header;
-    private Footer $footer;
+class HomeView extends View{
 
-    public function __construct(){
-        $this->header=new Header("Accueil | Booktopic");
-        $this->footer=new Footer(["../src/scripts/api.js"]);
-        
-    }
-    public function display():void{
-        echo $this->buffer;
-    }
-
-    public function displayAll(){
-        $this->header->launchBuffer()->display();
-        $this->launchBuffer()->display();
-        $this->footer->launchBuffer()->display();
-    }
     public function launchBuffer():self{
 
     ob_start();
@@ -161,7 +142,7 @@ class HomeView{
     </div>
     
     <?php
-    $this->buffer=ob_get_clean();
+    $this->setBuffer(ob_get_clean());
     return $this;
     }
     }

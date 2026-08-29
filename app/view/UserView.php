@@ -2,37 +2,34 @@
 
 namespace View;
 
-use View\Components\Header;
-use View\Components\Footer;
 use Models\Entities\User;
 
-class UserView{
-    private BookRepository $bookRepository;
-    private CommentRepository $commentRepository;
-    private User $user;
+class UserView extends View{
+    private ?User $user;
 
-        public function __construct(){
-        $this->header=new Header("Livre | Booktopic");
-        $this->footer=new Footer(["../src/scripts/api.js","../scripts/book.js"]);
+    public function setUser(User $user){
+        $this->user=$user;
     }
-
-}
+    
+    public function launchBuffer():self{
+    ob_start();
+    ?>
     <main>
         <nav class="breadcrumb" aria-label="fil d'ariane">
             <ol>
-            <li><a href="./"> Accueil</a></li>
-            <li aria-current="page"> <?= $user->getLogin() ?></li>
+            <li><a href="/">Accueil</a></li>
+            <li aria-current="page"> <?= $this->user->getLogin() ?></li>
             </ol>
         </nav>
-        <h1><?= $user->getLogin() ?></h1>
+        <h1><?= $this->user->getLogin() ?></h1>
         <div id="mainSection">
             <section class="containerRow">
                 <div>
-                    <img class="profileFoto" src="<?= $user->getPicture() ?>" alt="photo de profil">
+                    <img class="profileFoto" src="<?= $this->user->getPicture() ?>" alt="photo de profil">
                 </div>
                 <div class="containerCol">
                     <div class="containerRow">
-                        <a href="#" class="pseudo"> <?= $user->getLogin() ?></a> <button class="editBtn" type="button">Modifier</button>
+                        <a href="#" class="pseudo"> <?= $this->user->getLogin() ?></a> <button class="editBtn" type="button">Modifier</button>
                     </div>
                     <div class="follow">
                         <a href="#"><span>50</span> abonnés</a>
@@ -41,7 +38,7 @@ class UserView{
                     <div>
                         <ul>
                         <h4>Mes préferences</h4>
-                        <?php foreach ($user->getCategories() as $category): ?>
+                        <?php foreach ($this->user->getCategories() as $category): ?>
                             <li>
                                 <?= htmlspecialchars($category) ?>
                             </li>
@@ -49,7 +46,7 @@ class UserView{
                         </ul>
                     </div>
                     <h4>A propos de moi</h4>
-                    <p><?= $user->getPresentation() ?></p>
+                    <p><?= $this->user->getPresentation() ?></p>
                 </div>
             </section>
             <nav class="navSecond" aria-label="navigation secondaire">
@@ -80,3 +77,9 @@ class UserView{
             <h2>Suggestions</h2>
         </aside>    
     </main>
+    <?php
+    $this->setBuffer(ob_get_clean());
+    return $this;
+    }
+
+}

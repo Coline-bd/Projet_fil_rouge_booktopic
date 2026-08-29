@@ -4,26 +4,26 @@ namespace Models\Entities;
 
 class Book{
     private int $id_book;
-    private ?string $cover_book;
+    private string $cover_book="";
     private string $title_book;
     private ?string $subtitle_book;
     private string $published_at_book;
-    private ?string $summary_book;
+    private string $summary_book="";
     private string $editor_book;
     private string $author_book;
-    private ?array $categories;
+    private array $categories=[];
     private ?int $nb_comment;
 
     public function __construct(
         int $id_book,
-        ?string $cover_book,
+        string $cover_book,
         string $title_book,
         ?string $subtitle_book,
         string $published_at_book,
-        ?string $summary_book,
+        string $summary_book,
         string $editor_book,
         string $author_book,
-        ?array $categories,
+        array $categories,
         ?int $nb_comment
         )
         {

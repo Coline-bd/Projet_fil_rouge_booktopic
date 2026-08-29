@@ -49,7 +49,7 @@ class Comment{
     {
         return $this->login_user;
     }
-    public function getPictureAuthor():string
+    public function getPictureAuthor():?string
     {
         return $this->picture_user;
     }

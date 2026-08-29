@@ -1,26 +1,13 @@
 <?php 
-//<script src="./scripts/api.js" type="module"></script>
- //   <script src="./scripts/book.js" type="module"></script> 
 
 namespace View;
 
-
-use View\Components\Header;
-use View\Components\Footer;
 use Models\Entities\Book;
 use Models\Entities\Comment;
 
-class BookView{
-    private ?string $buffer;
-    private Header $header;
-    private Footer $footer;
+class BookView extends View{
     private Book $book;
     private ?array $comments;
-
-    public function __construct(){
-        $this->header=new Header("Livre | Booktopic");
-        $this->footer=new Footer(["../src/scripts/api.js","../scripts/book.js"]);
-    }
 
     public function setComments(array $comments){
         $this->comments=$comments;
@@ -35,24 +22,14 @@ class BookView{
         return $this->book;
     }
 
-    public function display():void{
-        echo $this->buffer;
-    }
-
-    public function displayAll(){
-        $this->header->launchBuffer()->display();
-        $this->launchBuffer()->display();
-        $this->footer->launchBuffer()->display();
-    }
-
     public function launchBuffer():self{
     ob_start();
     ?>
     <main>
         <nav class="breadcrumb" aria-label="fil d'ariane">
             <ol>
-                <li><a href="./"> Accueil</a></li>
-                <li><a href="./library"> Livres</a></li>
+                <li><a href="/"> Accueil</a></li>
+                <li><a href="/library"> Livres</a></li>
                 <li id="currentPage" aria-current="page"></li>
             </ol>
         </nav>
@@ -182,7 +159,7 @@ class BookView{
         </aside>    
     </main>
     <?php
-    $this->buffer=ob_get_clean();
+    $this->setBuffer(ob_get_clean());
     return $this;
     }
 }
