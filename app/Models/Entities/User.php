@@ -5,7 +5,7 @@ namespace Models\Entities;
 class User
 {
     //attributs
-    private int $id;
+    private ?int $id;
     private string $firstname;
     private string $lastname;
     private string $login;
@@ -14,14 +14,12 @@ class User
     private string $password;
     private ?string $picture;
     private ?string $presentation;
-
-    private int $roleId;
-
+    private ?int $roleId;
     private ?array $categories;
 
     //construct
     public function __construct(
-        int $id,
+        ?int $id,
         string $firstname,
         string $lastname,
         string $login,
@@ -31,7 +29,7 @@ class User
         ?string $picture,
         ?string $presentation,
         ?array $categories,
-        int $roleId
+        ?int $roleId
     ) {
         $this->id = $id;
         $this->firstname = $firstname;

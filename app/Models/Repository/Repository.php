@@ -13,7 +13,7 @@ class Repository{
         $this->connection = $connection;
     }
 
-    public function getDatabse(){
+    public function getDatabase(){
         return $this->connection;
     }
 

@@ -3,13 +3,13 @@
 namespace Controllers;
 
 use Models\Repository\UserRepository;
-use View\UserView;
+use View\View;
 
 class UserController{
     private UserRepository $userRepository;
-    private UserView $view;
+    private View $view;
 
-    public function __construct(UserRepository $userRepository,UserView $view){
+    public function __construct(UserRepository $userRepository,View $view){
         $this->userRepository=$userRepository;
         $this->view=$view;
     }

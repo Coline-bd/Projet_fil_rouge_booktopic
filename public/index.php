@@ -43,6 +43,8 @@ switch ($resource) {
     case '':
         if(!isset($_SESSION["id_user"])){
             $controller=new LoginController(new UserRepository(new DatabaseConnection),new LoginView("Identification"));
+            $controller->login();
+            $controller->register();
             $controller->render();
         }
         else{
