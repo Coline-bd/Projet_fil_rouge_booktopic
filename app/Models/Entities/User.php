@@ -11,7 +11,7 @@ class User
     private string $login;
     private string $email;
     private string $birthdate;
-
+    private string $password;
     private ?string $picture;
     private ?string $presentation;
 
@@ -27,6 +27,7 @@ class User
         string $login,
         string $email,
         string $birthdate,
+        string $password,
         ?string $picture,
         ?string $presentation,
         ?array $categories,
@@ -38,6 +39,7 @@ class User
         $this->login = $login;
         $this->email = $email;
         $this->birthdate = $birthdate;
+        $this->password=$password;
         $this->picture = $picture;
         $this->presentation = $presentation;
         $this->categories = $categories;
@@ -73,6 +75,10 @@ class User
     public function getBirthdate(): string
     {
         return $this->birthdate;
+    }
+
+    public function getPassword(): string{
+        return $this->password;
     }
 
     public function getPicture(): ?string

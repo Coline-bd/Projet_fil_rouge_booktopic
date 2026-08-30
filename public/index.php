@@ -1,29 +1,14 @@
 <?php
 session_start();
 
-$_SESSION['id_user'] = 1;
-
 require_once __DIR__ . '/../vendor/autoload.php';
-
-// include('../env.php');
-// include("../app/tools/DatabaseConnection.php");
-// include("../app/controllers/HomeController.php");
-// include("../app/controllers/userController.php");
-// include("../app/controllers/bookController.php");
-// include("../app/controllers/commentController.php");
-// include("../app/controllers/libraryController.php");
-// include("../app/models/userRepository.php");
-// include("../app/models/bookRepository.php");
-// include("../app/models/commentRepository.php");
-// include("../app/models/user.php");
-// include("../app/models/book.php");
-// include("../app/models/comment.php");
 
 use Controllers\BookController;
 use Controllers\CommentController;
 use Controllers\HomeController;
 use Controllers\UserController;
 use Controllers\LibraryController;
+use Controllers\LoginController;
 use Models\Entities\Book;
 use Models\Entities\Comment;
 use Models\Entities\User;
@@ -37,6 +22,7 @@ use View\HomeView;
 use Tools\DatabaseConnection;
 use View\BookView;
 use View\LibraryView;
+use View\LoginView;
 use View\UserView;
 
 //1. Récupérer l'url demandé par l'utilisateur
@@ -55,9 +41,19 @@ $action = $segments[2] ?? null;
 //3. Appeler le Controller lié à la route demandée
 switch ($resource) {
     case '':
-        $controller=new HomeController(new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
-        $controller->render();
+        if(!isset($_SESSION["id_user"])){
+            $controller=new LoginController(new UserRepository(new DatabaseConnection),new LoginView("Identification"));
+            $controller->render();
+        }
+        else{
+            $controller=new HomeController(new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
+            $controller->render();
+        }
         break;
+    case $_ENV['logout'] :
+        session_destroy();
+        header('Location: /');
+        exit;
     case $_ENV['user'] :
         $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
         $controller->render($param);

@@ -10,7 +10,7 @@ class View{
     private Footer $footer;
     private ?string $buffer;
 
-    public function __construct(string $title,array $script){
+    public function __construct(string $title,array $script=[]){
     $this->header=new Header($title);
     $this->footer=new Footer($script);
     }

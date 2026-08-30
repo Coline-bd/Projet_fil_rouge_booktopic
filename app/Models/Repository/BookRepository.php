@@ -10,7 +10,7 @@ class BookRepository extends Repository{
 
     public function findById(int $id): ?Book{
         try{
-            $req=$this->getDatabse()->getConnection()->prepare("SELECT b.id_book,cover_book,title_book,subtitle_book,published_at_book,summary_book,editor_book,author_book,count(comment.id_comment) as nb_comment,GROUP_CONCAT(name_category) as categories FROM book as b 
+            $req=$this->getDatabase()->getConnection()->prepare("SELECT b.id_book,cover_book,title_book,subtitle_book,published_at_book,summary_book,editor_book,author_book,count(comment.id_comment) as nb_comment,GROUP_CONCAT(name_category) as categories FROM book as b 
             LEFT JOIN category_book as cb ON b.id_book=cb.id_book 
             LEFT JOIN category as c ON cb.id_category=c.id_category 
             LEFT JOIN comment ON b.id_book=comment.id_book
@@ -34,7 +34,7 @@ class BookRepository extends Repository{
 
     public function findAll():?array{
         try{
-            $req=$this->getDatabse()->getConnection()->prepare("SELECT b.id_book,cover_book,title_book,subtitle_book,published_at_book,summary_book,editor_book,author_book,GROUP_CONCAT(name_category),count(comment.id_comment) as nb_comment as categories FROM book as b 
+            $req=$this->getDatabase()->getConnection()->prepare("SELECT b.id_book,cover_book,title_book,subtitle_book,published_at_book,summary_book,editor_book,author_book,GROUP_CONCAT(name_category),count(comment.id_comment) as nb_comment as categories FROM book as b 
             LEFT JOIN category_book as cb ON b.id_book=cb.id_book 
             LEFT JOIN category as c ON cb.id_category=c.id_category 
             GROUP BY b.id_book;");

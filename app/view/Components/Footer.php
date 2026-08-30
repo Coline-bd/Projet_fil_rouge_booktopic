@@ -4,7 +4,7 @@
 namespace View\Components;
     
 class Footer{
-    private ?array $linkScript;
+    private array $linkScript;
     private ?string $buffer;
 
     public function __construct(array $linkScript){
