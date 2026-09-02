@@ -9,6 +9,7 @@ use Controllers\HomeController;
 use Controllers\UserController;
 use Controllers\LibraryController;
 use Controllers\LoginController;
+use Controllers\ProfileController;
 use Models\Entities\Book;
 use Models\Entities\Comment;
 use Models\Entities\User;
@@ -41,16 +42,10 @@ $action = $segments[2] ?? null;
 //3. Appeler le Controller lié à la route demandée
 switch ($resource) {
     case '':
-        if(!isset($_SESSION["id_user"])){
-            $controller=new LoginController(new UserRepository(new DatabaseConnection),new LoginView("Identification"));
-            $controller->login();
-            $controller->register();
-            $controller->render();
-        }
-        else{
-            $controller=new HomeController(new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
-            $controller->render();
-        }
+        $controller=new HomeController(new UserRepository(new DatabaseConnection),new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
+        $controller->login();
+        $controller->register();
+        $controller->render();
         break;
     case $_ENV['logout'] :
         session_destroy();
@@ -60,17 +55,18 @@ switch ($resource) {
         $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
         $controller->render($param);
         break;
+    case $_ENV['profile'] :
+        $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+        $controller->render();
+        break;
     case $_ENV['library'] :
         $controller=new LibraryController(new LibraryView("Bibliothèque | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
         $controller->render();
         break;
     case $_ENV['book'] :
-        if($action==="comment"){
-            $addComment=new CommentController(new CommentRepository(new DatabaseConnection));
-            $addComment->create(1);//temporaire 1=$param
-        }
         $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView("Livre | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
-        $controller->displayBook(1);//temporaire 1=$param
+        $controller->createComment(1);//temporaire 1=$param
+        $controller->render(1);//temporaire 1=$param
         break;
     default:
         echo "erreur 404";

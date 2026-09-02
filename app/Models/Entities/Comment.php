@@ -8,6 +8,7 @@ class Comment{
     private int $id_comment;
     private DateTimeImmutable $date_comment;
     private string $content_comment;
+    private int $id_book;
     private int $id_user;
     private string $login_user;
     private ?string $picture_user;
@@ -16,6 +17,7 @@ class Comment{
         int $id_comment,
         DateTimeImmutable $date_comment,
         string $content_comment,
+        int $id_book,
         int $id_user,
         string $login_user,
         ?string $picture_user
@@ -24,6 +26,7 @@ class Comment{
         $this->id_comment=$id_comment;
         $this->date_comment=$date_comment;
         $this->content_comment=$content_comment;
+        $this->id_book=$id_book;
         $this->id_user=$id_user;
         $this->login_user=$login_user;
         $this->picture_user=$picture_user;
