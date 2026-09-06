@@ -4,30 +4,24 @@ namespace Controllers;
 
 use Models\Entities\User;
 use Models\Repository\Repository;
+use Models\Repository\UserRepository;
 use View\View;
 use Tools\Tools;
 
-class HomeController{
+class HomeController extends Controller{
+    private UserRepository $repository;
 
-    private Repository $repository;
-    private View $view;
-
-    public function __construct(Repository $repository,View $view){
+        public function __construct(UserRepository $repository,View $view){
         $this->repository=$repository;
-        $this->view=$view;
+        parent::__construct($view);
     }
-    
-    public function render(){
-        $this->view->displayAll();
-    }
-
     public function login():void{
         //1. Vérifier que l'on reçoive le formulaire de connexion
         if(isset($_POST['authenticate'])){
             
             //2. Vérifier les champs : champs vide, format des données, nettoyage
             if(empty($_POST['login']) || empty($_POST['password'])){
-                $this->view->setMessageAuth('Veuillez remplir tous les champs');
+                $this->getView()->setMessageAuth('Veuillez remplir tous les champs');
                 return;
             }
 
@@ -41,14 +35,14 @@ class HomeController{
 
             //b. Vérifier la réponse : si je reçois un tableau de donnée utilisateur, ou un false
             if($user == null){
-                $this->view->setMessageAuth('Identifiants incorrects');
+                $this->getView()->setMessageAuth('Identifiants incorrects');
                 return;
             }
 
             //4. Vérifier les mots de passe
             if(!password_verify($password, $user->getPassword())){
                 //si l'email ne correspond à aucun compte
-                $this->view->setMessageAuth('Identifiants incorrects');
+                $this->getView()->setMessageAuth('Identifiants incorrects');
                 return;
             }
                             
@@ -70,13 +64,13 @@ class HomeController{
             
             //2. Vérifier les champs : champs vide, format des données, nettoyage
             if(empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['login']) || empty($_POST['birthdate']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['passwordConfirmed'])){
-                $this->view->setMessageRegist('Veuillez remplir tous les champs');
+                $this->getView()->setMessageRegist('Veuillez remplir tous les champs');
                 return;
             }
             
             //Vérification du format d'email
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-                $this->view->setMessageRegist('Email pas au bon format');
+                $this->getView()->setMessageRegist('Email pas au bon format');
                 return;
             }
 
@@ -94,7 +88,7 @@ class HomeController{
 
             //Vérifier la réponse
             if($data !== null){
-                $this->view->setMessageRegist("Cet email est déjà utilisé");
+                $this->getView()->setMessageRegist("Cet email est déjà utilisé");
                 return;
             }
             //Vérifier si le pseudo existe déjà
@@ -102,22 +96,22 @@ class HomeController{
 
             //Vérifier la réponse : si je reçois un tableau de donnée utilisateur, ou un false
             if($data !== null){
-                $this->view->setMessageRegist("Ce pseudo n'est pas disponible");
+                $this->getView()->setMessageRegist("Ce pseudo n'est pas disponible");
                 return;
             }
             //Vérifier taille du pseudo
             if (mb_strlen($pseudo) > 50) {
-                $this->view->setMessageRegist("Le pseudo est trop long");
+                $this->getView()->setMessageRegist("Le pseudo est trop long");
             return;
         }
             //Vérifier taille du mot de passe
             if (strlen($password) < 8) {
-                $this->view->setMessageRegist("Le mot de passe doit contenir au moins 8 caractères");
+                $this->getView()->setMessageRegist("Le mot de passe doit contenir au moins 8 caractères");
                 return;
             }
             // Vérifier si les 2 mots de passes correspondent
             if($password!==$passwordConfirmed){
-                $this->view->setMessageRegist("Les mots de passe ne sont pas identiques");
+                $this->getView()->setMessageRegist("Les mots de passe ne sont pas identiques");
                 return;
             }
 
@@ -131,7 +125,7 @@ class HomeController{
             $this->repository->create($user);
 
             //Message de confirmation 
-            $this->view->setMessageRegist("Inscription confirmée. Vous pouvez désormais vous connecter");
+            $this->getView()->setMessageRegist("Inscription confirmée. Vous pouvez désormais vous connecter");
         }
     }
 }

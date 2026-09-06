@@ -6,28 +6,29 @@ use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use View\View;
 
-class BookController{
+class BookController extends Controller{
     private BookRepository $bookRepository;
     private CommentRepository $commentRepository;
-    private View $view;
 
     public function __construct(BookRepository $bookRepository,CommentRepository $commentRepository,View $view){
         $this->bookRepository=$bookRepository;
         $this->commentRepository=$commentRepository;
-        $this->view=$view;
+        parent::__construct($view);
     }
     
-    public function render(int $id){
+    public function displayBook(int $id){
         $book=$this->bookRepository->findById($id);
+        //book doesn't exists
         if ($book=== null){
             http_response_code(404);
             echo "Livre introuvable";
             return;
         }
-        $this->view->setBook($book);
+        //add book's data to the view
+        $this->getView()->setBook($book);
         $comments=$this->commentRepository->findByBookId($id);
-        $this->view->setComments($comments);
-        $this->view->displayAll();
+        //add comments' data to the view
+        $this->getView()->setComments($comments);
     }
 
     public function createComment(int $id_book): void{

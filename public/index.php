@@ -53,10 +53,12 @@ switch ($resource) {
         exit;
     case $_ENV['user'] :
         $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
-        $controller->render($param);
+        $controller->displayUser($param);
+        $controller->render();
         break;
     case $_ENV['profile'] :
         $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+        $controller->displayProfile();
         $controller->render();
         break;
     case $_ENV['library'] :
@@ -66,7 +68,12 @@ switch ($resource) {
     case $_ENV['book'] :
         $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView("Livre | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
         $controller->createComment(1);//temporaire 1=$param
-        $controller->render(1);//temporaire 1=$param
+        $controller->deleteComment(6);
+        $controller->displayBook(1);//temporaire 1=$param
+        $controller->render();
+        break;
+    case $_ENV['comment'] :
+        
         break;
     default:
         echo "erreur 404";

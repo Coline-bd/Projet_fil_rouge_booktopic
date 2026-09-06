@@ -5,30 +5,22 @@ namespace Controllers;
 use Models\Repository\Repository;
 use View\View;
 
-class UserController{
+class UserController extends Controller{
     private Repository $repository;
-    private View $view;
 
     public function __construct(Repository $repository,View $view){
         $this->repository=$repository;
-        $this->view=$view;
+        parent::__construct($view);
     }
     
-    public function render(string $login){
+    public function displayUser(string $login){
         $user=$this->repository->findByLogin($login);
         if ($user=== null){
             http_response_code(404);
             echo "Utilisateur introuvable";
             return;
         }
-        $this->view->setUser($user);
-        $this->view->displayAll();
-    }
-
-    public function profile(){
-        $user=$this->repository->findByLogin($_SESSION["pseudo_user"]);
-        $this->view->setUser($user);
-        $this->view->displayAll();
+        $this->getView()->setUser($user);
     }
 
 }

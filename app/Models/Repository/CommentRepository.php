@@ -38,7 +38,7 @@ class CommentRepository extends Repository{
 
     public function findById(int $id): ?Comment{
         try{
-            $req=$this->getDatabase()->getConnection()->prepare("SELECT c.id_comment,date_comment,content_comment,c.id_user,u.login_user,u.picture_user FROM comment as c 
+            $req=$this->getDatabase()->getConnection()->prepare("SELECT c.id_comment,date_comment,content_comment,c.id_user,u.login_user,c.id_book,u.picture_user FROM comment as c 
             JOIN user as u ON c.id_user=u.id_user 
             JOIN book as b ON c.id_book=b.id_book
             WHERE c.id_comment=?");
@@ -50,7 +50,7 @@ class CommentRepository extends Repository{
                 return null;
             }
             $date=new DateTimeImmutable($data["date_comment"]);
-            $comment= new Comment($data["id_comment"],$date,$data["content_comment"],$value["id_book"],$data["id_user"],$data["login_user"],$data["picture_user"]);
+            $comment= new Comment($data["id_comment"],$date,$data["content_comment"],$data["id_book"],$data["id_user"],$data["login_user"],$data["picture_user"]);
             return $comment;
         }
         catch(Exception $e){

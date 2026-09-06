@@ -3,7 +3,6 @@
 namespace View;
 
 use Models\Entities\Book;
-use Models\Entities\Comment;
 
 class BookView extends View{
     private Book $book;
@@ -99,7 +98,7 @@ class BookView extends View{
                     </div>
                     <button type="button">Répondre</button>
                     <?php if (isset($_SESSION['id_user']) && $_SESSION['id_user'] === $comment->getIdAuthor()): ?>
-                    <form action="">
+                    <form action="" method="post">
                         <input type="submit" name="deleteComment" value="supprimer">
                     </form>
                     <?php endif ?>
