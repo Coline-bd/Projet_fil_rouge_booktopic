@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Models\Entities\Comment;
 use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use View\View;
@@ -58,29 +59,12 @@ class BookController extends Controller{
         }
 
         //add comment in database
-        $this->commentRepository->create($content,$id_user,$id_book); 
+        $comment= new Comment($content,$id_book,$id_user,null,null,null,null);
+        $this->commentRepository->create($comment); 
 
         //redirection
         header('Location: /book/' . $id_book);
         exit;
-        }
-    }
-
-    public function deleteComment(int $id){
-        if(isset($_POST["deleteComment"])){
-            if(!isset($_SESSION["id_user"])){
-                header('Location: /');
-                exit;
-            }
-            $comment=$this->commentRepository->findById($id);
-            if($comment===null){
-                return;
-            }
-            if ($comment->getIdAuthor() !== $_SESSION['id_user']) {
-                http_response_code(403);
-                return;
-            }
-            $this->commentRepository->delete($id);
         }
     }
 }

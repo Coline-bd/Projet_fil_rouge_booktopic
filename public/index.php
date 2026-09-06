@@ -40,40 +40,44 @@ $param = $segments[1] ?? null;
 $action = $segments[2] ?? null;
 
 //3. Appeler le Controller lié à la route demandée
-switch ($resource) {
-    case '':
+switch (true) {
+    case $resource === '':
         $controller=new HomeController(new UserRepository(new DatabaseConnection),new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
         $controller->login();
         $controller->register();
         $controller->render();
         break;
-    case $_ENV['logout'] :
+    case $resource === $_ENV['logout'] :
         session_destroy();
         header('Location: /');
         exit;
-    case $_ENV['user'] :
-        $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+    case $resource === $_ENV['user'] :
+        $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->displayUser($param);
         $controller->render();
         break;
-    case $_ENV['profile'] :
-        $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+    case $resource === $_ENV['profile'] :
+        $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->displayProfile();
         $controller->render();
         break;
-    case $_ENV['library'] :
-        $controller=new LibraryController(new LibraryView("Bibliothèque | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+    case $resource === $_ENV['library'] :
+        $controller=new LibraryController(new LibraryView("Bibliothèque | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->render();
         break;
-    case $_ENV['book'] :
-        $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView("Livre | Booktopic",["../src/scripts/api.js","../scripts/book.js"]));
+    case $resource === $_ENV['book'] :
+        $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView("Livre | Booktopic",["/scripts/api.js","/scripts/book.js","/scripts/comment.js","/scripts/.js"]));
         $controller->createComment(1);//temporaire 1=$param
-        $controller->deleteComment(6);
         $controller->displayBook(1);//temporaire 1=$param
         $controller->render();
         break;
-    case $_ENV['comment'] :
-        
+    case $resource === $_ENV['comment'] && $action === 'delete':
+        $controller=new CommentController(new BookView("Livre | Booktopic",["/scripts/api.js","/scripts/book.js","/scripts/comment.js","/scripts/.js"]),new CommentRepository(new DatabaseConnection));
+        $controller->deleteComment($param);
+        break;
+    case $resource === $_ENV['comment'] && $action === 'edit':
+        $controller=new CommentController(new BookView("Livre | Booktopic",["/scripts/api.js","/scripts/book.js","/scripts/comment.js","/scripts/.js"]),new CommentRepository(new DatabaseConnection));
+        $controller->editComment($param);
         break;
     default:
         echo "erreur 404";

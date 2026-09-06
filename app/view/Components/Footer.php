@@ -30,9 +30,9 @@ class Footer{
     </nav>
     <p>© 2026 - Booktopic</p>
     </footer>
-    <script src="./scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
     <?php foreach($this->linkScript as $link) : ?>
-    <script src=<?= $link ?> type="module"></script>
+    <script src=<?= $link ?> ></script>
     <?php endforeach ?>
 </body>
 </html>

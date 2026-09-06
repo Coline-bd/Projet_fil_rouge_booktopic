@@ -98,11 +98,18 @@ class BookView extends View{
                     </div>
                     <button type="button">Répondre</button>
                     <?php if (isset($_SESSION['id_user']) && $_SESSION['id_user'] === $comment->getIdAuthor()): ?>
-                    <form action="" method="post">
+
+                    <button type="button" class="editCommentButton" data-comment-id="<?= $comment->getId() ?>">Modifier</button>
+
+                    <form action="/comment/<?= $comment->getId() ?>/delete" method="post">
                         <input type="submit" name="deleteComment" value="supprimer">
                     </form>
                     <?php endif ?>
                 </div>
+                <form action="/comment/<?= $comment->getId() ?>/edit" method="post" id="editComment<?= $comment->getId() ?>" style="display: none;" >
+                    <textarea name="comment"><?= $comment->getContent() ?></textarea>
+                    <input  type="submit" name="editComment" value="Modifier">
+                    </form>
             </div>
             <form action="#" method="post">
                 <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>

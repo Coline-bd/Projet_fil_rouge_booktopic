@@ -26,7 +26,7 @@ class CommentRepository extends Repository{
             $comments=[];
             foreach($data as $value){
                 $date=new DateTimeImmutable($value["date_comment"]);
-                $comments[]= new Comment($value["id_comment"],$date,$value["content_comment"],$value["id_book"],$value["id_user"],$value["login_user"],$value["picture_user"]);
+                $comments[]= new Comment($value["content_comment"],$value["id_book"],$value["id_user"],$date,$value["id_comment"],$value["login_user"],$value["picture_user"]);
             }
             return $comments;
             
@@ -50,7 +50,7 @@ class CommentRepository extends Repository{
                 return null;
             }
             $date=new DateTimeImmutable($data["date_comment"]);
-            $comment= new Comment($data["id_comment"],$date,$data["content_comment"],$data["id_book"],$data["id_user"],$data["login_user"],$data["picture_user"]);
+            $comment= new Comment($data["content_comment"],$data["id_book"],$data["id_user"],$date,$data["id_comment"],$data["login_user"],$data["picture_user"]);
             return $comment;
         }
         catch(Exception $e){
@@ -58,14 +58,14 @@ class CommentRepository extends Repository{
         }
     }
 
-    public function create(string $content,int $id_user,int $id_book):void{
+    public function create(Comment $comment):void{
         try{
             $req=$this->getDatabase()->getConnection()->prepare("INSERT INTO `comment`(content_comment,id_user,id_book) 
             VALUE (?,?,?);"
             );
-            $req->bindValue(1,$content);
-            $req->bindValue(2,$id_user,pdo::PARAM_INT);
-            $req->bindValue(3,$id_book,pdo::PARAM_INT);
+            $req->bindValue(1,$comment->getContent());
+            $req->bindValue(2,$comment->getIdAuthor(),pdo::PARAM_INT);
+            $req->bindValue(3,$comment->getIdBook(),pdo::PARAM_INT);
             $req->execute();
         }
         catch(Exception $e){
@@ -77,6 +77,18 @@ class CommentRepository extends Repository{
         try{
             $req=$this->getDatabase()->getConnection()->prepare("DELETE FROM `comment` WHERE id_comment=?"); 
             $req->bindValue(1,$id,pdo::PARAM_INT);
+            $req->execute();
+        }
+        catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function edit(Comment $comment){
+        try{
+            $req=$this->getDatabase()->getConnection()->prepare("UPDATE `comment` SET content_comment=? WHERE id_comment=?"); 
+            $req->bindValue(1,$comment->getContent(),pdo::PARAM_STR);
+            $req->bindValue(2,$comment->getId(),pdo::PARAM_INT);
             $req->execute();
         }
         catch(Exception $e){

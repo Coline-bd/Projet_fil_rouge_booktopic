@@ -5,21 +5,21 @@ namespace Models\Entities;
 use DateTimeImmutable;
 
 class Comment{
-    private int $id_comment;
-    private DateTimeImmutable $date_comment;
-    private string $content_comment;
-    private int $id_book;
-    private int $id_user;
-    private string $login_user;
+    private ?string $content_comment;
+    private ?int $id_book;
+    private ?int $id_user;
+    private ?DateTimeImmutable $date_comment;
+    private ?int $id_comment;
+    private ?string $login_user;
     private ?string $picture_user;
 
     public function __construct(
-        int $id_comment,
-        DateTimeImmutable $date_comment,
-        string $content_comment,
-        int $id_book,
-        int $id_user,
-        string $login_user,
+        ?string $content_comment,
+        ?int $id_book,
+        ?int $id_user,
+        ?DateTimeImmutable $date_comment,
+        ?int $id_comment,
+        ?string $login_user,
         ?string $picture_user
     )
     {
@@ -44,6 +44,10 @@ class Comment{
     {
         return $this->content_comment;
     }
+    public function setContent(string $content){
+        $this->content_comment=$content;
+        return $this;
+    }
     public function getIdAuthor(): int
     {
         return $this->id_user;
@@ -55,5 +59,8 @@ class Comment{
     public function getPictureAuthor():?string
     {
         return $this->picture_user;
+    }
+    public function getIdBook():int{
+        return $this->id_book;
     }
 }
