@@ -339,15 +339,75 @@ h2{
 }
 
 /*Card commentaire----------------*/
+.commentsSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 52rem;
+}
+
+.commentsSection h2{
+    padding-bottom: .5rem;
+}
+
+.commentsSection h2 span{
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
 .cardComment{
     display: flex;
     flex-direction: column;
-    border-bottom: solid 1px var(--color-text-secondary);
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    gap: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-bg-secondary);
+    border-radius: .75rem;
+    background-color: var(--color-bg);
 }
 
-#mainSection form button{
+.commentComposer{
+    border-color: var(--color-primary);
+}
+
+.commentItem .cardComment{
+    padding: 1.25rem;
+}
+
+.commentForm{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+}
+
+.commentForm label{
+    font-weight: 600;
+}
+
+.commentForm textarea{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 6rem;
+    padding: .75rem;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: .5rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    resize: vertical;
+}
+
+.commentForm textarea:focus{
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.commentFormActions{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#mainSection .commentForm button{
+    min-height: 2.4rem;
     padding: 0 0.5rem;
     border-radius: 1rem;
     font-size: 1rem;
@@ -358,6 +418,9 @@ h2{
 
 .profileFoto{
     height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .responses{/*réponses à un commentaire*/
@@ -410,7 +473,8 @@ h2{
 .actionComment{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: .5rem 1.25rem;
 }
 
 .actionComment div{
@@ -425,20 +489,14 @@ h2{
     padding: 0 0.5rem;
 }
 
-article form{
-    margin: 0.5rem 0;
-    display: flex;
-    height: 2rem;
-    gap: 1rem;
+.commentContent{
+    margin: 0;
+    line-height: 1.55;
+    white-space: pre-wrap;
 }
-article form textarea{
-    flex-grow: 1;
-    border-radius: 1rem;
-    border: solid 1px var(--color-text);
-    background-color: var(--color-bg);
-    resize: none;
-    display: flex;
-    color: var(--color-text);
+
+.deleteCommentForm{
+    display: inline-flex;
 }
 
 textarea::placeholder{

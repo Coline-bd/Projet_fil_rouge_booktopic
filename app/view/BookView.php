@@ -52,8 +52,8 @@ class BookView extends View{
                     <p id="bookDescription"></p>
                 </div>
             </section>
-            <section>
-                <article class="cardComment">
+            <section class="commentsSection" aria-labelledby="commentsTitle">
+                <article class="cardComment commentComposer">
                     <div class="containerRow">
                         <div>
                             <img class="profileFoto" src="../../public/images/photodeprofil.png">
@@ -63,15 +63,17 @@ class BookView extends View{
                             <span class="date">Maintenant</span>
                         </div>
                     </div>
-                    <form action="/book/<?= $this->book->getId() ?>/comment" method="post">
-                        <label for="comment">Ajouter un commentaire</label>
-                        <textarea name="comment" id="reponse" placeholder="Ecrire un message" required></textarea>
-                        <button type="submit" name="addComment">Publier</button> 
+                    <form class="commentForm" action="/book/<?= $this->book->getId() ?>/comment" method="post">
+                        <label for="newComment">Ajouter un commentaire</label>
+                        <textarea name="comment" id="newComment" rows="4" placeholder="Partagez votre avis sur ce livre…" required maxlength="255"></textarea>
+                        <div class="commentFormActions">
+                            <button type="submit" name="addComment">Publier</button>
+                        </div>
                     </form>
                 </article>
-                <h2>Commentaires (<span><?=$this->book->getNbComment() ?></span>)</h2>
+                <h2 id="commentsTitle">Commentaires <span>(<?=$this->book->getNbComment() ?>)</span></h2>
                 <?php foreach ($this->comments as $comment):?>
-                <article>
+                <article class="commentItem">
                 <div class="cardComment">
                 <div class="containerRow">
                     <div>
@@ -82,7 +84,7 @@ class BookView extends View{
                         <span class="date"> <?= $comment->getDate()->format('d/m/Y à H:i')?> </span>
                     </div>
                     </div>
-                <p> <?= $comment->getContent() ?></p>
+                <p class="commentContent"> <?= $comment->getContent() ?></p>
                 <div class="actionComment">
                     <div>
                         <button type="button">
@@ -98,25 +100,24 @@ class BookView extends View{
                     </div>
                     <button type="button">Répondre</button>
                     <?php if (isset($_SESSION['id_user']) && $_SESSION['id_user'] === $comment->getIdAuthor()): ?>
-
                     <button type="button" class="editCommentButton" data-comment-id="<?= $comment->getId() ?>">Modifier</button>
-
-                    <form action="/comment/<?= $comment->getId() ?>/delete" method="post">
-                        <input type="submit" name="deleteComment" value="supprimer">
-                    </form>
+                    <button type="button" class="deleteCommentButton" data-comment-id="<?= $comment->getId() ?>">Supprimer</button>
                     <?php endif ?>
                 </div>
-                <form action="/comment/<?= $comment->getId() ?>/edit" method="post" id="editComment<?= $comment->getId() ?>" style="display: none;" >
-                    <textarea name="comment"><?= $comment->getContent() ?></textarea>
-                    <input  type="submit" name="editComment" value="Modifier">
-                    </form>
+                <form class="commentForm" action="/comment/<?= $comment->getId() ?>/delete" method="post" id="deleteComment<?= $comment->getId() ?>" style="display: none;">
+                    <p>Voulez-vous supprimer ce commentaire ?</p>
+                    <button type="button" class="cancelDeleteButton" data-comment-id="<?= $comment->getId() ?>" >Annuler</button>
+                    <button type="submit" name="deleteComment">Supprimer</button>
+                </form>
+                <form class="commentForm editCommentForm" action="/comment/<?= $comment->getId() ?>/edit" method="post" id="editComment<?= $comment->getId() ?>" style="display: none;" >
+                    <label for="editCommentText<?= $comment->getId() ?>">Modifier mon commentaire</label>
+                    <textarea name="comment" id="editCommentText<?= $comment->getId() ?>" rows="4" maxlength="255"><?= $comment->getContent() ?></textarea>
+                    <div class="commentFormActions">
+                        <button type="button" class="cancelEditButton" data-comment-id="<?= $comment->getId() ?>" >Annuler</button>
+                        <button type="submit" name="editComment">Modifier</button>
+                    </div>
+                </form>
             </div>
-            <form action="#" method="post">
-                <textarea name="reponse" id="reponse" placeholder="Ecrire un message" required></textarea>
-                <button type="submit">
-                    Publier
-                </button> 
-            </form>
             </article>
             <?php endforeach ?>
             </section>
