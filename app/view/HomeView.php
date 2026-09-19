@@ -25,13 +25,13 @@ class HomeView extends View{
             <div class="cardComment">
                 <div class="containerRow">
                     <div>
-                        <img class="profileFoto" src="./public/images/pdp5.png" alt="photo de profil">
+                        <img class="profileFoto" src="/images/pdp5.png" alt="photo de profil">
                     </div>
                     <div class="containerCol">
                         <div>
                             <a href="/user/Margot17" class="pseudo"> Margot17</a>
                             <span>a commenté</span>
-                            <a href="/book" class="titleLink">L'espace d'un an</a>
+                            <a href="/book?id=1" class="titleLink">L'espace d'un an</a>
                         </div>
                         <span class="date"> 2 heures </span>
                     </div>
@@ -57,7 +57,7 @@ class HomeView extends View{
                 <div class="cardComment">
                     <div class="containerRow">
                         <div>
-                            <img class="profileFoto" src="./public/images/pdp2.png" alt="profil">
+                            <img class="profileFoto" src="./images/pdp2.png" alt="profil">
                         </div>
                         <div class="containerCol">
                                 <a href="/user/Paulo" class="pseudo">Paulo</a>
@@ -78,7 +78,7 @@ class HomeView extends View{
                 <div class="cardComment">
                     <div class="containerRow">
                         <div>
-                            <img class="profileFoto" src="./public/images/pdp3.png" alt="profil">
+                            <img class="profileFoto" src="./images/pdp3.png" alt="profil">
                         </div>
                         <div class="containerCol">
                                 <a href="#" class="pseudo">Julie</a>
@@ -97,18 +97,12 @@ class HomeView extends View{
                     </div>
                 </div>
             </div>
-            <form action="#" method="post">
-                <textarea title="écrire un message" name="message" id="message" placeholder="Ecrire un message" required></textarea>
-                <button type="submit">
-                    Publier
-                </button> 
-            </form>
             </article>
             <article>
             <div class="cardComment">
                 <div class="containerRow">
                     <div>
-                        <img class="profileFoto" src="./public/images/pdp4.png" alt="profil">
+                        <img class="profileFoto" src="./images/pdp4.png" alt="profil">
                     </div>
                     <div class="containerCol">
                             <div>
@@ -136,12 +130,6 @@ class HomeView extends View{
                     <button type="button">Répondre</button>
                 </div>
             </div>
-            <form action="#" method="post">
-                <textarea title="écrire un message" name="message" id="message" placeholder="Ecrire un message" required></textarea>
-                <button type="submit">
-                    Publier
-                </button> 
-            </form>
             </article>
         </div>
         <aside>

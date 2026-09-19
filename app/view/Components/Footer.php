@@ -31,6 +31,8 @@ class Footer{
     <p>© 2026 - Booktopic</p>
     </footer>
     <script src="/scripts/main.js"></script>
+    <!-- <script src="/scripts/api.js" type="module"></script> -->
+    <script src="/scripts/googleApi.js"></script>
     <?php foreach($this->linkScript as $link) : ?>
     <script src=<?= $link ?> ></script>
     <?php endforeach ?>

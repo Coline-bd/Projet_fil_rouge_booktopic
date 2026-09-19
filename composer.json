@@ -4,7 +4,8 @@
             "Controllers\\": "app/Controllers/",
             "Models\\": "app/Models/",
             "Tools\\" : "app/Tools/",
-            "View\\" : "app/View/"
+            "View\\" : "app/View/",
+            "Services\\" :"app/Services/"
         },
         "files": [
             "env.php"

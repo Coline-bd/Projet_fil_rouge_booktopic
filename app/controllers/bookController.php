@@ -6,6 +6,7 @@ use Models\Entities\Comment;
 use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use View\View;
+use Tools\Tools;
 
 class BookController extends Controller{
     private BookRepository $bookRepository;
@@ -17,9 +18,10 @@ class BookController extends Controller{
         parent::__construct($view);
     }
     
-    public function displayBook(int $id){
+    public function displayBook(){
+        $id=Tools::sanitize($_GET["id"]);
         $book=$this->bookRepository->findById($id);
-        //book doesn't exists
+        //if book doesn't exists
         if ($book=== null){
             http_response_code(404);
             echo "Livre introuvable";
@@ -32,10 +34,10 @@ class BookController extends Controller{
         $this->getView()->setComments($comments);
     }
 
-    public function createComment(int $id_book): void{
+    public function createComment(): void{
         if(isset($_POST["addComment"])){
-            $content = trim($_POST['comment'] ?? '');
-
+            $content = Tools::sanitize($_POST['comment'] ?? '');
+            $id_book=Tools::sanitize($_GET["id"]);
         //verif connexion
         if (!isset($_SESSION['id_user'])) {
             http_response_code(401);

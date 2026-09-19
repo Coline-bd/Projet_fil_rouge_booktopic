@@ -10,6 +10,7 @@ use Controllers\UserController;
 use Controllers\LibraryController;
 use Controllers\LoginController;
 use Controllers\ProfileController;
+use Controllers\ResearchController;
 use Models\Entities\Book;
 use Models\Entities\Comment;
 use Models\Entities\User;
@@ -17,9 +18,11 @@ use Models\Repository\Repository;
 use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use Models\Repository\UserRepository;
+use Services\GoogleBookService;
 use View\Header;
 use View\View;
 use View\HomeView;
+use View\SearchView;
 use Tools\DatabaseConnection;
 use View\BookView;
 use View\LibraryView;
@@ -42,7 +45,7 @@ $action = $segments[2] ?? null;
 //3. Appeler le Controller lié à la route demandée
 switch (true) {
     case $resource === '':
-        $controller=new HomeController(new UserRepository(new DatabaseConnection),new HomeView("Accueil | Booktopic",["../src/scripts/api.js"]));
+        $controller=new HomeController(new UserRepository(new DatabaseConnection),new HomeView("Accueil | Booktopic"));
         $controller->login();
         $controller->register();
         $controller->render();
@@ -61,14 +64,24 @@ switch (true) {
         $controller->displayProfile();
         $controller->render();
         break;
+    case $resource=== $_ENV['api']:
+        $query=$_GET['q'] ?? "";
+        $controller=new ResearchController(new SearchView("Bibliothèque | Booktopic"),new GoogleBookService());
+        $controller->search($query);
+        
+        exit;
+    case $resource=== $_ENV['search']:
+        $controller=new ResearchController(new SearchView("Bibliothèque | Booktopic"),new GoogleBookService());
+        $controller->render();
+        break;
     case $resource === $_ENV['library'] :
         $controller=new LibraryController(new LibraryView("Bibliothèque | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->render();
         break;
     case $resource === $_ENV['book'] :
         $controller=new BookController(new BookRepository(new DatabaseConnection),new CommentRepository(new DatabaseConnection),new BookView("Livre | Booktopic",["/scripts/api.js","/scripts/book.js","/scripts/comment.js","/scripts/.js"]));
-        $controller->createComment(1);//temporaire 1=$param
-        $controller->displayBook(1);//temporaire 1=$param
+        $controller->createComment();
+        $controller->displayBook();
         $controller->render();
         break;
     case $resource === $_ENV['comment'] && $action === 'delete':

@@ -27,7 +27,7 @@ class HomeController extends Controller{
 
             //Nettoyer les datas
             $login = Tools::sanitize($_POST['login']);
-            $password = Tools::sanitize($_POST['password']);
+            $password = $_POST['password'];
 
             //3. Demander au model d'aller trouver le compte utilisateur
             //a. Donner l'email au Model, puis le Model lance findByEmail
@@ -45,7 +45,7 @@ class HomeController extends Controller{
                 $this->getView()->setMessageAuth('Identifiants incorrects');
                 return;
             }
-                            
+            session_regenerate_id(true);
             //5. Connecter l'utilisateur
             $_SESSION['id_user'] = $user->getId();
             $_SESSION['pseudo_user'] = $user->getLogin();
@@ -80,8 +80,8 @@ class HomeController extends Controller{
             $firstname=Tools::sanitize($_POST["firstname"]);
             $lastname=Tools::sanitize($_POST["lastname"]);
             $birthdate=Tools::sanitize($_POST["birthdate"]);
-            $password = Tools::sanitize($_POST['password']);
-            $passwordConfirmed=Tools::sanitize($_POST['passwordConfirmed']);
+            $password = $_POST['password'];
+            $passwordConfirmed=$_POST['passwordConfirmed'];
 
             //Vérifier si l'adresse email existe déjà
             $data=$this->repository->findByEmail($email);
