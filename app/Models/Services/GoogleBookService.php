@@ -1,6 +1,6 @@
 <?php
 
-namespace Services; 
+namespace Models\Services;
 use RuntimeException;
 
 class GoogleBookService{

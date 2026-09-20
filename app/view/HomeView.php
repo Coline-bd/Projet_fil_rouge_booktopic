@@ -133,7 +133,21 @@ class HomeView extends View{
             </article>
         </div>
         <aside>
-            <h2>Livres</h2>    
+            <h2>Livres</h2>
+            <article class="cardBook">
+            <a href="./src/pages/book.html?id=WmOFEAAAQBAJ"> <img src="http://books.google.com/books/content?id=WmOFEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api" alt="Le Seigneur des Anneaux T1 La fraternité de l'anneau"></a>
+            <a href="./src/pages/book.html?id=WmOFEAAAQBAJ" class="titleCardBook"> Le Seigneur des Anneaux T1 La fraternité de l'anneau</a>
+            <span>J.R.R. Tolkien</span>
+            <span>Fiction</span>
+            <button class="addBtn" type="button"> Ajouter</button>
+            </article>   
+            <article class="cardBook">
+                <a href="./src/pages/book.html?id=5ZuhDAAAQBAJ"> <img src="http://books.google.com/books/content?id=5ZuhDAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api" alt="L'Espace d'un an"></a>
+                <a href="./src/pages/book.html?id=5ZuhDAAAQBAJ" class="titleCardBook"> L'Espace d'un an</a>
+                <span>Becky Chambers</span>
+                <span>Fiction</span>
+                <button class="addBtn" type="button"> Ajouter</button>
+            </article>
         </aside>
     </main>
     </div>

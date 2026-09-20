@@ -18,7 +18,7 @@ use Models\Repository\Repository;
 use Models\Repository\BookRepository;
 use Models\Repository\CommentRepository;
 use Models\Repository\UserRepository;
-use Services\GoogleBookService;
+use Models\Services\GoogleBookService;
 use View\Header;
 use View\View;
 use View\HomeView;
@@ -33,7 +33,6 @@ use View\UserView;
 $url = parse_url($_SERVER['REQUEST_URI']);
 
 //2. Récupérer le path de l'url : ceux qui vient après le nom de domaine
-
 $path = trim($url['path'] ?? '/', '/');
 
 $segments = $path === '' ? [] : explode('/', $path);
@@ -55,23 +54,21 @@ switch (true) {
         header('Location: /');
         exit;
     case $resource === $_ENV['user'] :
-        $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["/scripts/api.js","/scripts/book.js"]));
+        $controller=new UserController(new UserRepository(new DatabaseConnection),new UserView("Profil | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->displayUser($param);
         $controller->render();
         break;
     case $resource === $_ENV['profile'] :
-        $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("User | Booktopic",["/scripts/api.js","/scripts/book.js"]));
+        $controller=new ProfileController(new UserRepository(new DatabaseConnection),new UserView("Profil | Booktopic",["/scripts/api.js","/scripts/book.js"]));
         $controller->displayProfile();
         $controller->render();
         break;
     case $resource=== $_ENV['api']:
-        $query=$_GET['q'] ?? "";
-        $controller=new ResearchController(new SearchView("Bibliothèque | Booktopic"),new GoogleBookService());
-        $controller->search($query);
-        
-        exit;
+        $controller=new ResearchController(new SearchView("Recherche | Booktopic"),new GoogleBookService());
+        $controller->search();
+        break;
     case $resource=== $_ENV['search']:
-        $controller=new ResearchController(new SearchView("Bibliothèque | Booktopic"),new GoogleBookService());
+        $controller=new ResearchController(new SearchView("Recherche | Booktopic"),new GoogleBookService());
         $controller->render();
         break;
     case $resource === $_ENV['library'] :
